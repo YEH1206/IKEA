@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>로그인 - IKEA</title>
+  <link rel="stylesheet" href="./CSS/style.css">
+  <link rel="stylesheet" href="./CSS/rwd.css">
+  <link rel="stylesheet" href="./CSS/fonts.css">
+</head>
+
+<body>
+  <div id="login_container">
+    <div class="left_container">
+      <div class="logo">
+        <a href="https://www.ikea.com/kr/ko/"><i class="fa-solid fa-arrow-left"></i></a>
+        <img src="./Images/login_logo.svg" alt="IKEA">
+      </div>
+      <div class="left_main">
+        <h1>로그인</h1>
+        <p>Hej!<br>
+          스웨덴어로 '안녕하세요'라는 뜻입니다.<br>
+          IKEA Family에 가입하여 다양한 홈퍼니싱 영감과 할인 혜택, 리워드를 받아보세요.</p>
+      </div>
+      <div class="copyright">
+        <span>IKEA.kr - </span>
+        <a href="https://www.ikea.com/kr/ko/customer-service/cookie-policy/">쿠키 정책</a>
+        <span> , </span>
+        <a href="https://www.ikea.com/kr/ko/customer-service/privacy-policy/privacy-policy-pub20a57ecd">개인정보처리방침</a>
+        <p>&copy Inter IKEA Systems B.V. 1999-2023</p>
+      </div>
+    </div>
+    <div class="right_container">
+      <div id="login_form_container">
+        <form action="javascript:;" method="post" autocomplete="off" novalidate>
+          <label for="id">이메일 또는 휴대폰 번호</label>
+          <input type="text" id="id" name="id">
+          <div class="warning">
+            <span>이메일 또는 휴대폰 번호를 입력해주세요.</span>
+          </div>
+          <div class="space"></div>
+          <label for="pw">비밀번호</label>
+          <input type="password" id="pw" name="pw">
+          <div class="warning"><span>비밀번호를 입력해 주세요.</span>
+          </div>
+          <div class="space"></div>
+          <div class="space"></div>
+          <button type="submit">로그인</button>
+          <h2>IKEA 계정이 없으신가요? 지금 바로 만들어보세요:</h2>
+          <a href="./join.html"><button type="button">회원 가입하기</button></a>
+        </form>
+      </div>
+      <div class="copyright">
+        <span>IKEA.kr - </span>
+        <a href="https://www.ikea.com/kr/ko/customer-service/cookie-policy/">쿠키 정책</a>
+        <span> , </span>
+        <a href="https://www.ikea.com/kr/ko/customer-service/privacy-policy/privacy-policy-pub20a57ecd">개인정보처리방침</a>
+        <p>&copy Inter IKEA Systems B.V. 1999-2023</p>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

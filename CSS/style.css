@@ -1,0 +1,73 @@
+@charset "utf-8";
+* {margin: 0; padding: 0; box-sizing: border-box;}
+ul {list-style: none;}
+a {color: inherit; /* text-decoration: none; */}
+html, body {height: 100%;}
+
+/* login */
+#login_container {height: 100%; display: flex; position: relative;}
+
+#login_container .left_container {width: 40%; padding: 2rem 5rem; background-color: rgb(0, 88, 163); color: white; align-items: center; display: flex; flex-direction: column; justify-content: space-between;}
+#login_container .left_container .logo {width: 24rem; display: flex; align-items: center; justify-content: flex-start;}
+#login_container .left_container .logo a {display: block; position: absolute; left: 30px; font-size: 20px;}
+#login_container .left_container .logo img {display: block; width: 5.5rem; height: 2.75rem;}
+#login_container .left_container .left_main {width: 25rem;}
+#login_container .left_container .left_main h1 {color: #fbd914; font-size: 32px; letter-spacing: -.04rem;}
+#login_container .left_container .left_main p {font-size: 14px; padding-top: 14px; line-height: 20px;}
+#login_container .left_container .copyright {width: 25rem; font-size: 11px;}
+
+#login_container .right_container {padding: 2rem 5rem; flex: 1 1 auto; align-items: flex-start; display: flex; flex-direction: column; justify-content: center;}
+#login_container .right_container .copyright {display: none; font-size: 11px; color: #484848;}
+
+#login_form_container {padding: 1rem 0rem; width: 28rem;}
+#login_form_container label {display: block; margin: 0 0 0.125rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: .875rem; line-height: 1.571; color: #484848;}
+#login_form_container input {border: 1px solid rgb(146, 146, 146); border-radius: 4px; width: 100%; height: 3rem; color: rgb(17,17,17); font-size: 1rem; line-height: 1.5; overflow: hidden; padding-inline-end: 0.5rem; padding-inline-start: 0.5rem;}
+#login_form_container input:focus {outline: none !important; border: 2px solid #0058a3;}
+#login_form_container .warning {color: #e00751; margin-top: 0.25rem; font-size: 0.75rem; line-height: 1.5; display: none;}
+#login_form_container .space {height: 24px; width: 100%;}
+#login_form_container button {width: 100%; border-radius: 64px; font-size: .875rem; font-weight: 700; height: 3.5rem; cursor: pointer;}
+#login_form_container > form > button {background: #0058a3; border: 0; color: #fff;}
+#login_form_container > form > button:hover {background: #004f93;}
+#login_form_container > form > a > button {border: 1px solid rgb(17,17,17); background: #fff;}
+#login_form_container > form > a > button:hover {border: 2px solid rgb(17,17,17);}
+#login_form_container h2 {font-size: 0.9rem; color: rgb(72, 72, 72); font-weight: bold; letter-spacing: -.0042rem; margin: 1.5rem 0; color: #484848; text-align: center;}
+
+/* join */
+#join_container {min-height: 100%; display: flex; position: relative;}
+
+#join_container .left_container {width: 40%; padding: 2rem 5rem; align-items: center; display: flex; flex-direction: column; justify-content: space-between;}
+#join_container .left_container .section {width: 310px;}
+#join_container .left_container .section .logo {align-items: center; display: flex;}
+#join_container .left_container .section .logo a {display: block; position: absolute; left: 30px; font-size: 20px;}
+#join_container .left_container .section .logo img {display: block; height: 36px; width: 90px;}
+#join_container .left_container .section .main {margin-top: 4rem;}
+#join_container .left_container .section .main h1 {font-size: 31px; letter-spacing: -0.04rem; margin-block-end: 0;}
+#join_container .left_container .section .main h1 span {color: #0058a3;}
+#join_container .left_container .section .main > span {display: block; font-size: 14px; line-height: 20px; margin-top: 16px;}
+#join_container .left_container .section .main .pics {display: flex; margin: 3rem 0;}
+#join_container .left_container .section .main .pics .pics_left {width: 50%;}
+#join_container .left_container .section .main .pics .pics_left div {background-repeat: no-repeat; width: 100%; background-position: center center; background-size: cover; border-radius: 4px; margin-bottom: 0.4rem; height: 16rem;}
+#join_container .left_container .section .main .pics .pics_left div:nth-child(1) {background-image: url(../Images/SIGNUP_IMAGES_1.jpg);}
+#join_container .left_container .section .main .pics .pics_left div:nth-child(2) {background-image: url(../Images/SIGNUP_IMAGES_2.jpg);}
+#join_container .left_container .section .main .pics .pics_right {width: 50%; margin-left: 0.4rem;}
+#join_container .left_container .section .main .pics .pics_right div {background-repeat: no-repeat; width: 100%; background-position: center center; background-size: cover; border-radius: 4px; margin-bottom: 0.4rem; height: 12rem;
+}
+#join_container .left_container .section .main .pics .pics_right div:nth-child(1) {background-image: url(../Images/SIGNUP_IMAGES_5.jpg);}
+#join_container .left_container .section .main .pics .pics_right div:nth-child(2) {background-image: url(../Images/SIGNUP_IMAGES_6.jpg);}
+#join_container .left_container .section .main .pics .pics_right div:nth-child(3) {background-image: url(../Images/SIGNUP_IMAGES_7.jpg);}
+#join_container .left_container .copyright {width: 100%; font-size: 11px; text-align: left;}
+
+#join_container .pic {display: none;}
+
+#join_container .right_container {padding: 2rem 5rem; flex: 1 1 auto; display: flex; flex-direction: column; justify-content: center;}
+#join_container .right_container .reward {width: 28rem; font-size: 14px; color: #484848; margin-top: 6rem;}
+#join_container .right_container .copyright {font-size: 11px; display: none;}
+
+#join_form_container {width: 28rem; margin-top: 4rem; margin-bottom: 4rem;}
+#join_form_container label {display: block; margin: 0 0 0.125rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: .875rem; line-height: 1.571; color: #484848;}
+#join_form_container input {border: 1px solid rgb(146, 146, 146); border-radius: 4px; width: 100%; height: 3rem; color: rgb(17,17,17); font-size: 1rem; line-height: 1.5; overflow: hidden; padding-inline-end: 0.5rem; padding-inline-start: 0.5rem;}
+#join_form_container input:focus {outline: none !important; border: 2px solid #0058a3;}
+#join_form_container .warning {color: #e00751; margin-top: 0.25rem; font-size: 0.75rem; line-height: 1.5; display: none;}
+#join_form_container .space {height: 24px; width: 100%;}
+#join_form_container button {width: 100%; border-radius: 64px; font-size: .875rem; font-weight: 700; height: 3.5rem; cursor: pointer; background: #111; color: #fff;}
+#join_form_container button:hover {background: #333;}
