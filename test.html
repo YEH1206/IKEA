@@ -5,8 +5,56 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js" integrity="sha512-jGsMH83oKe9asCpkOVkBnUrDDTp8wl+adkB2D+//JtlxO4SrLoJdhbOysIFQJloQFD+C4Fl1rMsQZF76JjV0eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 </head>
 <body>
-    <img src="./Images/blue_bedroom.jpg" alt="blue_bedroom">
+
+    <style>
+        img {width: 300px;}
+    </style>
+
+    <div class="list">
+        <ul class="subcate">
+            <!-- <li class="on"><a href="javascript:;">모든공간</a></li> -->
+            <li class="on"><a href="javascript:;">침실</a></li>
+            <li><a href="javascript:;">거실</a></li>
+            <li><a href="javascript:;">주방</a></li>
+        </ul>
+        <div class="product">
+            <div>
+                <img src="./Images/coverImages/br_blue.jpeg" alt="blue bedroom">
+                <button>슬뢰이실리아</button>
+                <button>크륍코르넬</button>
+            </div>
+            <div>
+                <img src="./Images/coverImages/br_pink.jpeg" alt="pink bedroom">
+                <button>이코르네스</button>
+            </div>
+            <div>
+                <img src="./Images/coverImages/br_white.jpeg" alt="white bedroom">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let data = '';
+        $.ajax({
+            type:'GET',
+            url:'./JS/coverData.json',
+            dataType:'json',
+            success : function(rdata){
+                // console.log(rdata)
+                data = rdata
+                usedata("침실")
+            },
+            error : function(xhr){
+                alert(xhr.status+"/"+xhr.errorText)
+            }
+        })
+    </script>
+
+    <script src="./JS/coverList.js"></script>
+    
 </body>
 </html>
