@@ -1,10 +1,10 @@
 @charset "utf-8";
 * {margin: 0; padding: 0; box-sizing: border-box;}
 ul {list-style: none;}
-a {color: inherit; /* text-decoration: none; */}
+a {color: inherit;}
 html, body {height: 100%;}
 
-/* login */
+/* login.html */
 #login_container {height: 100%; display: flex; position: relative;}
 
 #login_container .left_container {width: 40%; padding: 2rem 5rem; background-color: rgb(0, 88, 163); color: white; align-items: center; display: flex; flex-direction: column; justify-content: space-between;}
@@ -32,7 +32,7 @@ html, body {height: 100%;}
 #login_form_container > form > a > button:hover {border: 2px solid rgb(17,17,17);}
 #login_form_container h2 {font-size: 0.9rem; color: rgb(72, 72, 72); font-weight: bold; letter-spacing: -.0042rem; margin: 1.5rem 0; color: #484848; text-align: center;}
 
-/* join */
+/* join.html */
 #join_container {min-height: 100%; display: flex; position: relative;}
 
 #join_container .left_container {width: 40%; padding: 2rem 5rem; align-items: center; display: flex; flex-direction: column; justify-content: space-between;}
@@ -71,3 +71,30 @@ html, body {height: 100%;}
 #join_form_container .space {height: 24px; width: 100%;}
 #join_form_container button {width: 100%; border-radius: 64px; font-size: .875rem; font-weight: 700; height: 3.5rem; cursor: pointer; background: #111; color: #fff;}
 #join_form_container button:hover {background: #333;}
+
+/* rooms.html, gallery.html */
+#section .grid {padding-inline-start: 1.25rem; padding-inline-end: 2.5rem; display: grid; grid-column-gap: 1.25rem; grid-template-columns: repeat(13,minmax(0,1fr));}
+#section .grid > div h1 {display: block; font-weight: bold; word-break: break-word;font-size: 2.25rem; line-height: 1.333; letter-spacing: -0.0063em; color: rgb(17, 17, 17); margin-bottom: 2.5rem; width: calc(7 / 12 * (100% - (11 * 1.25rem)) + (6 * 1.25rem));}
+#section .grid > div {grid-column: 2 / 14;}
+#section nav {margin-bottom: 2.5rem;}
+#section nav ol {list-style-type: none; display: inline-block; width: 100%; padding: 0.75rem 0 1rem;}
+#section nav ol li {max-width: 100%; display: inline; text-decoration: none; font-size: .75rem; line-height: 1.5; font-weight: 400; color: rgb(17, 17, 17);}
+
+#section nav a {text-decoration: none;}
+#section nav a:hover {text-decoration-line: underline;}
+#section nav ol li::after {content: "›"; display: inline; font-size: 1rem; margin: 0px 0.25rem;}
+#section nav ol li:last-child::after {content: ""}
+
+#rooms_container {display: flex; flex-wrap: wrap; margin: calc(1.25rem / 2 * -1);}
+#rooms_container > div {display: flex; flex-grow: 0; margin: calc(1.25rem / 2); width: 100%; flex-basis: calc(33.33% - 1.25rem);}
+#rooms_container > div > div {flex: 1;}
+#rooms_container > div > div > a {height: 100%; display: flex; flex-direction: column; text-decoration: none;}
+#rooms_container > div > div > a:hover {text-decoration: underline;}
+#rooms_container > div > div > a .card_img {flex-basis: auto; max-width: 100%; order: 0; flex-shrink: 0;}
+#rooms_container > div > div > a .card_img span {width: 100%; position: relative; height: auto; display: block; padding-bottom: 75%; box-sizing: border-box;}
+#rooms_container > div > div > a .card_img span img {object-fit: cover; display: block; max-width: 100%; height: 100%; position: absolute; left: 0; top: 0; color: transparent;}
+#rooms_container > div > div > a .card_info {padding: 1.5rem;}
+#rooms_container > div > div > a .card_info h2 {display: block; max-width: 30rem; font-size: 1.125em; margin-block-start: 0.83em; margin-block-end: 0.83em; font-weight: bold; line-height: 1.444; margin-top: 0.5rem; letter-spacing: -0.0042em;}
+#rooms_container > div > div > a .card_info i {padding: 0 0.5rem;}
+
+

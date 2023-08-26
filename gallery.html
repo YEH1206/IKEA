@@ -11,7 +11,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"
 		integrity="sha512-jGsMH83oKe9asCpkOVkBnUrDDTp8wl+adkB2D+//JtlxO4SrLoJdhbOysIFQJloQFD+C4Fl1rMsQZF76JjV0eQ=="
 		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<title>공간별 쇼핑하기 - IKEA</title>
+	<title>침실 인테리어 갤러리 - IKEA</title>
 	<link rel="stylesheet" href="./CSS/style.css">
 	<link rel="stylesheet" href="./CSS/rwd.css">
 	<link rel="stylesheet" href="./CSS/fonts.css">
@@ -24,15 +24,20 @@
 			<div>
 				<nav role="navigation">
 					<ol>
-						<li><span>공간별 쇼핑하기</span></li>
+						<li>
+							<a href="./rooms.html"><span>공간별 쇼핑하기</span></a>
+						</li>
+						<li>
+							<span class="current">침실</span>
+						</li>
 					</ol>
 				</nav>
 			</div>
 			<div>
-				<h1>공간별 쇼핑하기</h1>
+				<h1>어떤 <span class="current">침실</span>을 꿈꾸시나요?</h1>
 			</div>
 			<div id="rooms_container">
-				<!-- <div>
+				<div>
 					<div>
 						<a href="./gallery.html?침실">
 							<div class="card_img">
@@ -57,18 +62,25 @@
 							</div>
 						</a>
 					</div>
-				</div> -->
+				</div>
 			</div>
 		</div>
 	</section>
 
 	<script>
+		let temp = location.href.split("?")
+		let room = decodeURI(temp[1])
+		$(document).attr("title", `${room} 인테리어 갤러리 - IKEA`)
+		$('.current').text(`${room}`)
+
 		$.ajax({
 			type: 'GET',
 			url: './JS/rooms.json',
 			dataType: 'json',
 			success: function (rdata) {
-				getRoomPics(rdata)
+				let room_data = rdata.filter(value => value.room == room)
+				console.log(room_data)
+				// getGalleryPics(room)
 			},
 			error: function (xhr) {
 				alert(xhr.status + "/" + xhr.errorText)

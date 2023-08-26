@@ -6,6 +6,11 @@
     #join_container .left_container .copyright {width: 100%;}
 }
 
+@media screen and (max-width:1200px){
+    #section .grid {display: block; padding-inline-start: 3rem; padding-inline-end: 3rem; max-width: 112rem;}
+    #rooms_container > div {flex-basis: calc(49.99% - 1.25rem);}
+}
+
 @media screen and (max-width:975px) {
     #login_container .left_container {padding: 2rem;}
     #login_container .left_container .logo {width: auto;}
@@ -19,7 +24,10 @@
     #join_container .right_container {padding: 2rem;}
     #join_container .right_container .reward {width: 100%;}
     #join_form_container {width: 100%;}
+}
 
+@media screen and (max-width:900px){
+    #section .grid {display: block; padding-inline-start: 2rem; padding-inline-end: 2rem; max-width: 112rem;}
 }
 
 @media screen and (max-width:640px) {
@@ -46,4 +54,11 @@
     #join_container .right_container {padding: 2rem; justify-content: space-between; align-items: center;}
     #join_container .right_container .reward {margin-top: 0rem;}
     #join_container .right_container .copyright {display: block; font-size: 11px; color: #484848;}
+}
+
+@media screen and (max-width:600px){
+    #section .grid > div h1 {font-size: 1.5rem; line-height: 1.45; letter-spacing: -0.0042em;}
+
+    #section .grid {display: block; padding-inline-start: 1.25rem; padding-inline-end: 1.25rem; max-width: 112rem;}
+    #rooms_container > div {flex-basis: calc(100% - 1.25rem);}
 }
