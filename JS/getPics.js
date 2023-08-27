@@ -6,7 +6,7 @@ function getRoomPics(rdata) {
                 <div>
                     <a href="./gallery.html?${element.room}">
                         <div class="card_img">
-                            <span><img src="./Images/Rooms/${element.section[0].image}" alt="${element.section[0].name}"></span>
+                            <span><img src="./Images/Rooms/${element.section[0].image}.jpg" alt="${element.section[0].name}"></span>
                         </div>
                         <div class="card_info">
                             <h2>${element.room}</h2>
@@ -20,11 +20,24 @@ function getRoomPics(rdata) {
     $('#rooms_container').append(roomPics)
 }
 
-function getGalleryPics(room) {
+function getGalleryPics(room, data) {
+    console.log(data)
     let galleryPics = ''
-    console.log(rdata)
-    rdata.forEach(element => {
-        console.log(element)
-        element.room == 1
+    data.forEach(element => {
+        galleryPics +=
+        `<div>
+            <div>
+                <a href="./detail.html?${room}?${element.image}">
+                    <div class="card_img">
+                        <span><img src="./Images/Rooms/${element.image}.jpg" alt=""></span>
+                    </div>
+                    <div class="card_info">
+                        <h2>${element.name}</h2>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </a>
+            </div>
+        </div>`
     })
+    $('#rooms_container').append(galleryPics)
 }

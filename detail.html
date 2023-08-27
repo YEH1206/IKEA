@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"
+    integrity="sha512-jGsMH83oKe9asCpkOVkBnUrDDTp8wl+adkB2D+//JtlxO4SrLoJdhbOysIFQJloQFD+C4Fl1rMsQZF76JjV0eQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <title><!-- 차분한 느낌의 그린 톤 침실 - IKEA --></title>
+  <link rel="stylesheet" href="./CSS/style.css">
+  <link rel="stylesheet" href="./CSS/rwd.css">
+  <link rel="stylesheet" href="./CSS/fonts.css">
+</head>
+
+<body>
+
+  <section id="section">
+    <div class="grid">
+      <div>
+        <nav role="navigation">
+          <ol>
+            <li>
+              <a href="./rooms.html"><span>공간별 쇼핑하기</span></a>
+            </li>
+            <li class="prev">
+              <a href=""><span><!-- 침실 --></span></a>
+            </li>
+            <li>
+              <span class="current"><!-- 차분한 느낌의 그린 톤 침실 --></span>
+            </li>
+          </ol>
+        </nav>
+      </div>
+      <div id="detail_contents">
+        <div>
+          <h1 class="current"><!-- 차분한 느낌의 그린 톤 침실 --></h1>
+          <p>모든 물건이 제자리에 있고 주변을 둘러봤을 때 기분이 좋으면 정말 편히 쉬고 잠도 푹 잘 수 있어요. 마음이 편안해지는 색, 스타일리시하면서도 실용적인 가구, 포근한 텍스타일로 꾸민 이 침실은
+            편안한 안식처가 되어줄 거예요.</p>
+          <div id="main_pic">
+            <span><img src="./Images/Rooms/차분한_느낌의_그린_톤_침실.jpg" alt="차분한 느낌의 그린 톤 침실"></span>
+          </div>
+        </div>
+        <div>
+          <div class="detail_grid">
+            <div class="detail_info">
+              <div>
+                <h2>평온한 풍경</h2>
+                <p>차분한 색, 꿈을 꾸게 하는 예술 작품, 조금이라도 더 머물고 싶어지는 부드럽고 편안한 침대가 아늑한 침실을 만들죠. 차분한 그린 색과 깔끔한 디자인이 방 안에 평화로운 분위기를 만들어 줘요.</p>
+              </div>
+            </div>
+            <div class="detail_pic">
+              <div>
+                <span><img src="./Images/Rooms/평온한_풍경.jpg" alt="평온한 풍경"></span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <script>
+    let temp = location.href.split("?")
+    let room = decodeURI(temp[1])
+    let theme = decodeURI(temp[2]).split("_").join(" ")
+    $(document).attr("title", `${theme} - IKEA`)
+    $('.prev a').attr("href", `./gallery.html?${room}`)
+    $('.prev span').text(room)
+    $('.current').text(theme)
+
+    $.ajax({
+      type: 'GET',
+      url: './JS/rooms.json',
+      dataType: 'json',
+      success: function (rdata) {
+        let room_data = rdata.filter(value => value.room == room)
+        getGalleryPics(room_data[0].section)
+      },
+      error: function (xhr) {
+        alert(xhr.status + "/" + xhr.errorText)
+      }
+    })
+  </script>
+  <script src="./JS/getPics.js"></script>
+
+</body>
+
+</html>
