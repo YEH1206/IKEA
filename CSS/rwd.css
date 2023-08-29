@@ -9,7 +9,6 @@
 @media screen and (max-width:1200px){
     #section .grid {display: block; padding-inline-start: 3rem; padding-inline-end: 3rem; max-width: 112rem;}
     #rooms_container > div {flex-basis: calc(49.99% - 1.25rem);}
-    #header_second {display: none;}
     #banner {flex-direction: column;}
     #banner .image_wrapper {width: 100%;}
     #banner div:nth-child(2) {width: 100%;}
