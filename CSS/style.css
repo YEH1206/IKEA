@@ -28,9 +28,12 @@ html, body {height: 100%;}
 #banner button:hover {background-color: #333;}
 #idea {grid-column: 2/14;}
 #idea h1 {color: rgb(17,17,17); font-weight: bold; word-break: break-word; margin-bottom: 0.5rem; font-size: 1.5rem; line-height: 1.45; letter-spacing: -0.0042em;}
+<<<<<<< HEAD
 #idea div ul {display: flex;}
 #idea div ul li {width: 100px; height: 40px; border-radius: 20px; text-align: center; line-height: 40px; background-color: #f5f5f5; font-size: 13px; font-weight: bold; margin-right: 15px;}
 #idea div ul li:hover {background-color: #dfdfdf;}
+=======
+>>>>>>> f0da703a5eb3d21743006d2b317e9e77513ed997
 
 /* login.html */
 #login_container {height: 100%; display: flex; position: relative;}
@@ -187,6 +190,7 @@ html, body {height: 100%;}
 .image_dot:hover + div {display: block!important;}
 
 /* prd.html */
+<<<<<<< HEAD
 #prd_container {width: 100%; vertical-align: center;}
 #prd_left {grid-column: 2 / span 5;}
 #prd_left img {width: 100%;}
@@ -213,3 +217,15 @@ html, body {height: 100%;}
 #prd_qty_form input:focus {outline:0;}
 #prd_buttons {display: flex; flex-direction: row; width: 100%; justify-content: space-between;}
 #prd_buttons > button {width: 55%; height: 56px; border: 1px solid #aaa; text-align: center; border-radius: 30px; background-color: #0058a3; cursor: pointer; color: white; font-size: 16px; font-weight: bold;}
+=======
+#prd_container {width: 100%;}
+#prd_left {grid-column: 2 / span 7;}
+#prd_left img {width: 100%;}
+#prd_right {grid-column: 10 / 14; padding: 0 2.5rem; margin-top: 100px;}
+#prd_right > h1 {color: #111; font-size: 16px; margin-bottom: 6px;}
+#prd_right > p {color: #484848; font-size: 16px;}
+#prd_right > span {color: #111; font-size: 28px; font-weight: bold;}
+#prd_right > div {margin-top: 30px;}
+#prd_right > div p {font-size: 14px; color: #111; font-weight: bold;}
+#prd_right > div span {font-size: 14px; color: #111;}
+>>>>>>> f0da703a5eb3d21743006d2b317e9e77513ed997
