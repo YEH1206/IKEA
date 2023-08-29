@@ -189,12 +189,12 @@ html, body {height: 100%;}
 
 /* prd.html */
 #prd_container {width: 100%; vertical-align: center;}
-#prd_left {grid-column: 2 / span 5;}
+#prd_left {grid-column: 2 / span 5; margin-top: 100px;}
 #prd_left img {width: 100%;}
 #prd_left div p:nth-child(1) {font-size: 20px; color: #484848; margin-bottom: 40px;}
 #prd_left div p:nth-child(2) {font-size: 15px;}
 #prd_left div p:nth-child(2) span {background-color: #111; padding: 0 15px; color: white; font-weight: bold; margin-bottom: 20px;}
-#prd_right {grid-column: 8 / 12; padding: 0 2.5rem; margin-top: 100px;}
+#prd_right {grid-column: 8 / 12; padding: 0 2.5rem; margin-top: 150px;}
 #prd_info_box > h1 {color: #111; font-size: 16px; margin-bottom: 6px;}
 #prd_info_box p {color: #484848; font-size: 16px;  margin-bottom: 15px;}
 #prd_info_box > span {color: #111; font-size: 28px; font-weight: bold;}

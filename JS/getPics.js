@@ -72,9 +72,9 @@ function getDetailPics(data) {
             console.log(item)
             detailPics += 
             `<li>
-            <a href="prd_detail.html?" class="image_dot" style="top: ${item.place[0]}; left:${item.place[1]};"></a>
+            <a href="prd_detail.html?${item.name}" class="image_dot" style="top: ${item.place[0]}; left:${item.place[1]};"></a>
             <div style="display: none;">
-              <a href="prd.html">
+              <a href="prd.html?${item.name}">
                 <div style="border-radius: 3px; position: absolute; top: ${item.place[2]}; left:${item.place[3]}">
                   <div style="width: 130px;">
                     <h3><span style="font-size: 14px; margin-bottom: 4px;">${item.name}</span></h3>
@@ -95,4 +95,44 @@ function getDetailPics(data) {
         </div>`
     })
     $('#detail_contents').append(detailPics)
+}
+
+function getPrdDetail(data){
+    let prd_pic = ''
+    prd_pic += `
+        <img src="./Images/Prd/${data.name}.avif" alt="${data.name}">
+          <div>
+            <p>${data.narr}
+            </p>
+            <p>제품번호<br><span>${data.prd_num}</span></p>
+          </div>`
+    console.log(prd_pic)
+    $('#prd_left').append(prd_pic)
+
+    let prd_info = ''
+    prd_info += `
+          <div id="prd_info_box">
+            <h1>${data.name}</h1>
+            <p id="prd_info">${data.info}</p>
+            <span><i class="fa-solid fa-won-sign" style="font-size: 14px;"></i> ${data.price}</span>
+            <div>
+              <p>색상 선택</p>
+              <span id="picked_color">색상</span>
+              <div>`
+    for (let i = 0; i < data.color.length; i++) {
+        prd_info += `<img src="./Images/Prd/${data.name}${i}.webp" alt="${data.name}"></img>`
+    }
+    prd_info += `</div>
+            </div>
+          </div>
+          <div id="prd_buttons">
+            <div id="prd_qty_form">
+              <button type="button" class="qty__minus">-</button>
+              <input type="text" value="1">
+              <button type="button" class="qty__plus">+</button>
+            </div>
+            <button type="button">구매하기</button>
+          </div>
+        </div>`
+    $('#prd_right').append(prd_info)
 }

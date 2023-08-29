@@ -22,15 +22,15 @@
   <section id="section">
     <div class="header_grid">
         <div id="prd_left">
-          <img src="./Images/Prd/ALEX_알렉스_1.avif" alt="ALEX 알렉스">
+          <!-- <img src="./Images/Prd/MOALINA 모알리나.avif" alt="ALEX 알렉스">
           <div>
             <p>복잡한 케이블을 깔끔하게 정리할 수 있는 똑똑한 디자인과 누구나 좋아할 만한 심플한 스타일을 갖춘 제품입니다. 뒷면이 마감 처리가 되어 있어 방 한가운데 두고 사용해도 근사하답니다.
             </p>
             <p>제품번호<br><span>604.838.06</span></p>
-          </div>
+          </div> -->
         </div>
         <div id="prd_right">
-          <div id="prd_info_box">
+          <!-- <div id="prd_info_box">
             <h1>ALEX 알렉스</h1>
             <p id="prd_info">책상, 그레이터쿼이즈, 132x58 cm</p>
             <span><i class="fa-solid fa-won-sign" style="font-size: 14px;"></i> 229000</span>
@@ -43,8 +43,8 @@
                 <img src="./Images/Prd/ALEX 알렉스 책상, 화이트스테인_참나무무늬, 132x58 cm.jpg" alt="">
               </div>
             </div>
-          </div>
-          <div id="prd_buttons">
+          </div> -->
+          <!-- <div id="prd_buttons">
             <div id="prd_qty_form">
               <button type="button" class="qty__minus">-</button>
               <input type="text" value="1">
@@ -52,13 +52,33 @@
             </div>
             <button type="button">구매하기</button>
           </div>
-        </div>
+        </div> -->
 
     </div>
   </section>
 
   <script src="./JS/common.js"></script>
   
+	<script>
+		let temp = location.href.split("?")
+		let prd_name = decodeURI(temp[1])
+		$(document).attr("title", `${prd_name} - IKEA`)
+
+		$.ajax({
+			type: 'GET',
+			url: './JS/products.json',
+			dataType: 'json',
+			success: function (rdata) {
+        let prd = rdata.filter(value => value.name == prd_name)
+        getPrdDetail(prd[0])
+			},
+			error: function (xhr) {
+				alert(xhr.status + "/" + xhr.errorText)
+			}
+		})
+	</script>
+
+	<script src="./JS/getPics.js"></script>
 </body>
 
 </html>
