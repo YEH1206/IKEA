@@ -4,6 +4,34 @@ ul {list-style: none;}
 a {color: inherit;}
 html, body {height: 100%;}
 
+/* header */
+#header {padding-inline: 1.25rem 2.5rem; color: #484848; font-size: 14px;}
+.header_grid {display: grid; grid-column-gap: 1.25rem; grid-template-columns: repeat(13, minmax(0, 1fr));}
+#header_first {display: flex; flex-direction: row; justify-content: space-between; text-align: center; }
+#header_first img {width: 90px; padding-top: 40px; padding-bottom: 20px;}
+#header_second ul {display: flex; flex-direction: row;}
+#header_first, #header_second {grid-column: 2/14; grid-row: 1;}
+#header_login, #header_cart {margin: auto; margin-right: 50px;}
+#header a {text-decoration: none;}
+#header_second li {margin-right: 30px; font-weight: bold; margin-bottom: 6px;}
+#header_second {border-bottom: 0.5px solid #eee;}
+
+/* index.html */
+#section {padding-inline: 1.25rem 2.5rem; color: #484848; font-size: 14px;}
+#banner {grid-column: 2/14; margin-top: 50px; display: flex; width: 100%; margin-bottom: 4rem;}
+#banner .image_wrapper {width: 66%;}
+#banner img {width: 100%; overflow-clip-margin: content-box; overflow: clip; display: block;}
+#banner div:nth-child(2) {background-color: rgb(247, 130, 34); padding: 3rem; width: 33%; flex: 1 1 auto;}
+#banner h1 {color: rgb(17,17,17); font-weight: bold; word-break: break-word; margin-bottom: 0.5rem; font-size: 1.5rem; line-height: 1.45; letter-spacing: -0.0042em;}
+#banner p {color: #111; margin-bottom: 2rem;}
+#banner button {cursor: pointer; border-radius: 64px; background-color: #111; height: 40px; color: white; border: 0px; padding: 0 24px;}
+#banner button:hover {background-color: #333;}
+#idea {grid-column: 2/14;}
+#idea h1 {color: rgb(17,17,17); font-weight: bold; word-break: break-word; margin-bottom: 0.5rem; font-size: 1.5rem; line-height: 1.45; letter-spacing: -0.0042em;}
+#idea div ul {display: flex;}
+#idea div ul li {width: 100px; height: 40px; border-radius: 20px; text-align: center; line-height: 40px; background-color: #f5f5f5; font-size: 13px; font-weight: bold; margin-right: 15px;}
+#idea div ul li:hover {background-color: #dfdfdf;}
+
 /* login.html */
 #login_container {height: 100%; display: flex; position: relative;}
 
@@ -73,6 +101,7 @@ html, body {height: 100%;}
 #join_form_container button:hover {background: #333;}
 
 /* rooms.html, gallery.html, detail.html */
+#section {height: 100%;}
 #section .grid {padding-inline-start: 1.25rem; padding-inline-end: 2.5rem; display: grid; grid-column-gap: 1.25rem; grid-template-columns: repeat(13,minmax(0,1fr));}
 #section .grid > div h1 {display: block; font-weight: bold; word-break: break-word;font-size: 2.25rem; line-height: 1.333; letter-spacing: -0.0063em; color: rgb(17, 17, 17); margin-bottom: 1.25rem; width: calc(7 / 12 * (100% - (11 * 1.25rem)) + (6 * 1.25rem));}
 #section .grid > div p {display: block; width: calc(7 / 12 * (100% - (11 * 1.25rem)) + (6 * 1.25rem)); margin-bottom: 1.25rem; font-size: 1rem; line-height: 1.625; font-style: normal; font-weight: normal; word-break: break-word; color: rgb(72, 72, 72);}
@@ -100,12 +129,87 @@ html, body {height: 100%;}
 
 /* detail.html */
 #detail_contents > div {margin-bottom: 4rem; border-bottom: 1px solid rgb(223, 223, 223); height: auto;}
+#detail_contents > div:nth-child(odd) .detail_info {display: block; grid-column: 1/span 4; width: initial;}
+#detail_contents > div:nth-child(odd) .detail_pic {grid-column: 7/span 6; grid-row: 1;}
 #main_pic span {padding-bottom: 56.25%; width: 100%; position: relative; height: auto; display: block; box-sizing: border-box;}
 #main_pic img {object-fit: cover; width: 100%; height: 100%; position: absolute; left: 0; top: 0;}
 #detail_contents .detail_grid {display: grid; grid-column-gap: 1.25rem; grid-template-columns: repeat(12, minmax(0, 1fr));}
 #detail_contents .detail_grid .detail_info {grid-column: 8/span 4; width: initial;}
-#detail_contents .detail_grid .detail_pic {grid-column: 1/span 6; grid-row: 1;}
+#detail_contents .detail_grid .detail_pic {grid-column: 1/span 6; grid-row: 1; position: relative;}
 #detail_contents .detail_grid .detail_pic > div > span {width: 100%; height: 100%; padding-bottom: 133.3333%; box-sizing: border-box; position: relative; display: block;}
 #detail_contents .detail_grid .detail_pic > div > span > img {object-fit: cover; width: 100%; height: 100%; position: absolute; left: 0; top: 0;}
 .detail_info h2 {font-weight: bold; word-break: break-word; display: block; font-size: 1.5rem; line-height: 1.45; letter-spacing: -0.0042em; color: #111; margin-bottom: 0.5rem;}
 #detail_contents .detail_info p {width: 100%!important; margin: 0!important; font-size: .875rem!important; min-height: 100%; line-height: 1.571!important; word-wrap: break-word; letter-spacing: -0.0042em;}
+.detail_pic li {position: absolute; top: 0;}
+.detail_pic li a {text-decoration: none;}
+.detail_pic li > div > a > div {display: flex; flex-direction: row; transition: transform 250ms ease-in-out; justify-content: space-between;
+  width: 100%;
+  text-align: initial;
+  text-decoration: none;
+  color: rgb(17, 17, 17);
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 1px 4px rgba(17, 17, 17, 0.55); 
+  min-width: 8.4375rem;
+  max-width: 11.25rem;}
+  .detail_pic li > div > a > div > div {margin: 0.75rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;}
+    .detail_pic li > div > a > div > div h3 {margin-bottom: 0.5rem; color: rgb(17, 17, 17);
+      font-size: 1rem;
+      line-height: 1.5;
+      font-weight: 700;
+  };
+.detail_pic li > div > a > div span {display: block;}
+.image_dot {
+  width: 2rem;
+  height: 2rem;
+  border: 2px solid transparent;
+  position: absolute;
+  background: rgba(17, 17, 17, 0.2);
+  opacity: 1;
+  visibility: visible;
+  border-radius: 64px;
+  line-height: .5;
+  display: flex;
+  align-items: center;
+  justify-content: center;}
+.image_dot::after  {content: "";
+  transition: transform 250ms ease-in-out;
+  position: relative;
+  display: block;
+  background: rgb(255, 255, 255);
+  box-shadow: 0 1px 4px rgba(var17, 17, 17, 0.55);
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 64px;}
+.image_dot:hover {transition: border-color 250ms ease-in-out; border-color: #555;}
+.image_dot:hover + div {display: block!important;}
+
+/* prd.html */
+#prd_container {width: 100%; vertical-align: center;}
+#prd_left {grid-column: 2 / span 5;}
+#prd_left img {width: 100%;}
+#prd_left div p:nth-child(1) {font-size: 20px; color: #484848; margin-bottom: 40px;}
+#prd_left div p:nth-child(2) {font-size: 15px;}
+#prd_left div p:nth-child(2) span {background-color: #111; padding: 0 15px; color: white; font-weight: bold; margin-bottom: 20px;}
+#prd_right {grid-column: 8 / 12; padding: 0 2.5rem; margin-top: 100px;}
+#prd_info_box > h1 {color: #111; font-size: 16px; margin-bottom: 6px;}
+#prd_info_box p {color: #484848; font-size: 16px;  margin-bottom: 15px;}
+#prd_info_box > span {color: #111; font-size: 28px; font-weight: bold;}
+#prd_buttons {margin-top: 30px;}
+#prd_info_box > div {margin-top: 30px;}
+#prd_info_box > div p {display: block; font-size: 14px; color: #111; font-weight: bold; margin-bottom: 10px;}
+#prd_info_box > div span {display: block; font-size: 14px; color: #111; margin-bottom: 15px;}
+#prd_info_box > div img {display: inline-block; margin: 10px; border-radius: 3px;}
+#prd_info_box > div img:hover {border: 1px solid #eee;}
+#prd_info_box {border: 1px solid #ccc; border-radius: 5px; padding: 30px 20px;}
+
+#prd_qty_form {display: flex; width: 40%; height: 56px; border: 1px solid #aaa; text-align: center; border-radius: 30px;}
+#prd_qty_form button {width: 40px; height: 40px; border-radius: 30px; margin: auto; border: 0; background-color: transparent; font-weight: bold; text-align: center; font-size: 28px; vertical-align: middle; cursor: pointer;}
+#prd_qty_form button:hover {background-color: #eee;}
+#prd_qty_form button:active {background-color: #aaa;}
+#prd_qty_form input {width: 27px; height: 100%; font-size: 15px; text-align: center; font-weight: bold; border: 0;}
+#prd_qty_form input:focus {outline:0;}
+#prd_buttons {display: flex; flex-direction: row; width: 100%; justify-content: space-between;}
+#prd_buttons > button {width: 55%; height: 56px; border: 1px solid #aaa; text-align: center; border-radius: 30px; background-color: #0058a3; cursor: pointer; color: white; font-size: 16px; font-weight: bold;}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"
+  integrity="sha512-jGsMH83oKe9asCpkOVkBnUrDDTp8wl+adkB2D+//JtlxO4SrLoJdhbOysIFQJloQFD+C4Fl1rMsQZF76JjV0eQ=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <title>IKEA</title>
+  <link rel="stylesheet" href="./CSS/style.css">
+  <link rel="stylesheet" href="./CSS/rwd.css">
+  <link rel="stylesheet" href="./CSS/fonts.css">
+</head>
+
+<body>
+  <div class="header"></div>
+
+  <section id="section">
+    <div class="header_grid">
+        <div id="prd_left">
+          <img src="./Images/Prd/ALEX_알렉스_1.avif" alt="ALEX 알렉스">
+          <div>
+            <p>복잡한 케이블을 깔끔하게 정리할 수 있는 똑똑한 디자인과 누구나 좋아할 만한 심플한 스타일을 갖춘 제품입니다. 뒷면이 마감 처리가 되어 있어 방 한가운데 두고 사용해도 근사하답니다.
+            </p>
+            <p>제품번호<br><span>604.838.06</span></p>
+          </div>
+        </div>
+        <div id="prd_right">
+          <div id="prd_info_box">
+            <h1>ALEX 알렉스</h1>
+            <p id="prd_info">책상, 그레이터쿼이즈, 132x58 cm</p>
+            <span><i class="fa-solid fa-won-sign" style="font-size: 14px;"></i> 229000</span>
+            <div>
+              <p>색상 선택</p>
+              <span id="picked_color">색상</span>
+              <div>
+                <img src="./Images/Prd/ALEX 알렉스 책상, 그레이터쿼이즈, 132x58 cm.jpg" alt="">
+                <img src="./Images/Prd/ALEX 알렉스 책상, 화이트, 132x58 cm.jpg" alt="">
+                <img src="./Images/Prd/ALEX 알렉스 책상, 화이트스테인_참나무무늬, 132x58 cm.jpg" alt="">
+              </div>
+            </div>
+          </div>
+          <div id="prd_buttons">
+            <div id="prd_qty_form">
+              <button type="button" class="qty__minus">-</button>
+              <input type="text" value="1">
+              <button type="button" class="qty__plus">+</button>
+            </div>
+            <button type="button">구매하기</button>
+          </div>
+        </div>
+
+    </div>
+  </section>
+
+  <script src="./JS/common.js"></script>
+  
+</body>
+
+</html>

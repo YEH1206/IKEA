@@ -42,16 +42,16 @@ function getGalleryPics(room, data) {
 }
 
 function getDetailPics(data) {
+    console.log(data)
     let detailPics = ''
     detailPics += 
-    console.log(data)
-    `<div>
-        <h1 class="current">${data.name}</h1>
-        <p>${data.info}</p>
-        <div id="main_pic">
-        <span><img src="./Images/Rooms/${data.image}.avif" alt="${data.name}"></span>
-        </div>
-    </div>`
+        `<div>
+            <h1 class="current">${data.name}</h1>
+            <p>${data.info}</p>
+            <div id="main_pic">
+            <span><img src="./Images/Rooms/${data.image}.avif" alt="${data.name}"></span>
+            </div>
+        </div>`
     data.detail.forEach(element => {
         detailPics += 
         `<div>
@@ -67,41 +67,29 @@ function getDetailPics(data) {
                 <span><img src="./Images/Rooms/${element.sub_image}.avif" alt="${element.sub_name}"></span>
                 </div>
                 <div>
-                <ul>
-                    <li>
-                    <a href=""></a>
-                    <div></div>
-                    </li>
-                    <li>
-                    <a href=""></a>
-                    <div>
-                        <a>
-                        <div>
-                            <div><span></span><span></span><span></span></div>
-                            <div></div>
-                        </div>
-                        </a>
-                    </div>
-                    </li>
-                    <li>
-                    <a href=""></a>
-                    <div></div>
-                    </li>
-                    <li>
-                    <a href=""></a>
-                    <div></div>
-                    </li>
-                    <li>
-                    <a href=""></a>
-                    <div></div>
-                    </li>
-                    <li>
-                    <a href=""></a>
-                    <div></div>
-                    </li>
-                </ul>
+                <ul>`
+        for (let i = 0; i < element.sub_items.length; i++) {
+            let item = element.sub_items[i]
+            detailPics += 
+            `<li>
+            <a href="prd.html" class="image_dot" style="top: ${item.place[0]}; left:${item.place[1]};"></a>
+            <div style="display: none;">
+              <a href="prd.html">
+                <div style="border-radius: 3px; position: absolute; top: ${item.place[2]}; left:${item.place[3]}">
+                  <div style="width: 130px;">
+                    <h3><span style="font-size: 14px; margin-bottom: 4px;">${item.name}</span></h3>
+                    <span style="font-size: 14px; margin-bottom: 4px;">${item.info}</span>
+                    <span style="font: 22px;"><i class="fa-solid fa-won-sign" style="font-size: 11px;"></i> ${item.price}</span>
+                  </div>
                 </div>
-
+              </a>
+            </div>
+          </li>`
+        }
+        
+        detailPics += 
+                `</ul>
+              </div>
             </div>
             </div>
         </div>`
