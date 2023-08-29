@@ -42,7 +42,6 @@ function getGalleryPics(room, data) {
 }
 
 function getDetailPics(data) {
-    console.log(data)
     let detailPics = ''
     detailPics += 
         `<div>
@@ -70,9 +69,10 @@ function getDetailPics(data) {
                 <ul>`
         for (let i = 0; i < element.sub_items.length; i++) {
             let item = element.sub_items[i]
+            console.log(item)
             detailPics += 
             `<li>
-            <a href="prd.html" class="image_dot" style="top: ${item.place[0]}; left:${item.place[1]};"></a>
+            <a href="prd_detail.html?" class="image_dot" style="top: ${item.place[0]}; left:${item.place[1]};"></a>
             <div style="display: none;">
               <a href="prd.html">
                 <div style="border-radius: 3px; position: absolute; top: ${item.place[2]}; left:${item.place[3]}">
