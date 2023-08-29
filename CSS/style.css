@@ -30,7 +30,7 @@ html, body {height: 100%;}
 #idea {grid-column: 2/14;}
 #idea h1 {color: rgb(17,17,17); font-weight: bold; word-break: break-word; margin-bottom: 0.5rem; font-size: 1.5rem; line-height: 1.45; letter-spacing: -0.0042em;}
 #idea div ul {display: flex;}
-#idea div ul li {width: 100px; height: 40px; border-radius: 20px; text-align: center; line-height: 40px; background-color: #f5f5f5; font-size: 13px; font-weight: bold; margin-right: 15px;}
+#idea div ul li {width: 100px; height: 40px; border-radius: 20px; text-align: center; line-height: 40px; background-color: #f5f5f5; font-size: 13px; font-weight: bold; margin-right: 15px; cursor: pointer;}
 #idea div ul li:hover {background-color: #dfdfdf;}
 
 /* login.html */
@@ -214,3 +214,11 @@ html, body {height: 100%;}
 #prd_qty_form input:focus {outline:0;}
 #prd_buttons {display: flex; flex-direction: row; width: 100%; justify-content: space-between;}
 #prd_buttons > button {width: 55%; height: 56px; border: 1px solid #aaa; text-align: center; border-radius: 30px; background-color: #0058a3; cursor: pointer; color: white; font-size: 16px; font-weight: bold;}
+
+/* all_prd.html */
+#all_prd {grid-column: 2 / 14;}
+#all_prd h1 {font-size: 36px; color: #111; margin: 25px 0;}
+#all_prd .paragraph {width: calc(7 / 12 * (100% - (11 * 1.25rem)) + (6 * 1.25rem)); margin-bottom: 30px;}
+#all_prd_nav ul {display: flex;}
+#all_prd_nav ul li {padding: 10px 0; width: 100px; margin-bottom: 20px; background-color: #f5f5f5; margin-right: 15px; text-align: center; font-weight: bold; font-size: 14px; border-radius: 50px;}
+#all_prd_nav {border-bottom: 1px solid #aaa}
