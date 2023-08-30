@@ -65,13 +65,13 @@ function getDetailPics(element) {
                 <div>
                 <span><img src="./Images/Rooms/${element.sub_image}.avif" alt="${element.sub_name}"></span>
                 </div>
-                <div>
+                <div style="position:relative">
                 <ul>`
         for (let i = 0; i < element.sub_items.length; i++) {
             let item = element.sub_items[i]
             detailPics += 
             `<li>
-            <a href="prd_detail.html?${item.name}" class="image_dot" style="top: ${item.place[0]}; left:${item.place[1]};"></a>
+            <a href="prd_detail.html?${item.name}" class="image_dot" style="top: ${item.place[0]}; left:${item.place[1]}; position: relative"></a>
             <div style="display: none;">
               <a href="prd.html?${item.name}">
                 <div style="border-radius: 3px; position: absolute; top: ${item.place[2]}; left:${item.place[3]};">
@@ -116,7 +116,7 @@ function getPrdDetail(element){
             <span><i class="fa-solid fa-won-sign" style="font-size: 14px;"></i> ${element.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</span>
             <div>
               <p>색상 선택</p>
-              <span id="picked_color">${element.color}</span>
+              <span id="picked_color">${element.color[0]}</span>
               <div class="picked_color_img">`
     for (let i = 0; i < element.color.length; i++) {
       if (i==0) {
@@ -150,12 +150,12 @@ function getAllPrd(data){
             <img src="./Images/Prd/${element.name}.avif" alt="${element.name}">
           </div>
           <div class="one_info">
-            <h2>${element.name}</h2>
-            <p>${element.info}</p>
-            <p><i class="fa-solid fa-won-sign" style="font-size: 14px;"></i> ${element.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</p>
+            <h2 class="name">${element.name}</h2>
+            <p><span class="info">${element.info}</span>, <span class="color">${element.color[0]}</span></p>
+            <p class="price"><i class="fa-solid fa-won-sign" style="font-size: 14px;"></i> ${element.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</p>
           </div></a>
         <div>
-            <button type="submit"><i class="fa-solid fa-basket-shopping"></i></button>
+            <button type="submit" class="cart"><i class="fa-solid fa-basket-shopping"></i></button>
         </div>
       </div>`
     })

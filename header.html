@@ -18,3 +18,57 @@
     </div>
   </div>
 </header>
+
+<script>
+  let myid = sessionStorage.getItem("id")
+  let mypw = sessionStorage.getItem("pw")
+  if (myid && mypw) {
+      $('.member a').eq(0).attr({
+          href : "javascript:;"
+      }).text("로그아웃")
+      $('.member a').eq(1).attr({
+          href : "./modify.html"
+      }).text("정보수정")
+  }
+
+  $('.member a').eq(0).on('click', function(){
+      let text = $(this).text()
+      if (text == '로그아웃') {
+          if (type=='myacc') {
+              sessionStorage.clear()
+              localStorage.clear()
+          } else if (type='kakao') {
+              sessionStorage.clear()
+              localStorage.clear()
+              kakaoLogout()
+          }
+          
+          $(this).attr({
+              href : "./login.html"
+          }).text('로그인')
+          $(this).next().attr({
+              href : './join.html'
+          }).text("회원가입")
+          location.href = './index.html'
+          return false;
+      }
+  })
+
+  function kakaoLogout(){
+      Kakao.init('e2d9d60931827b4bfbb54adb187582fa')
+      if (Kakao.Auth.getAccessToken()){
+          Kakao.API.request({
+              url:'/v1/user/unlink',
+              success: function(response){
+                  console.log(response)
+              },
+              fail : function(error){
+                  console.log(error)
+              }
+          })
+          Kakao.Auth.setAccessToken(undefined)
+      }
+  }
+
+
+</script>

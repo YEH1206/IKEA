@@ -39,13 +39,13 @@
                     <img src="./Images/Prd/ALEX 알렉스.avif" alt="ALEX 알렉스">
                   </div>
                   <div class="one_info">
-                    <h2>제품명</h2>
-                    <p>제품설명</p>
-                    <p><i class="fa-solid fa-won-sign" style="font-size: 14px;"></i>가격</p>
+                    <h2 class="name">제품명</h2>
+                    <p class="info">제품설명</p>
+                    <p class="price"><i class="fa-solid fa-won-sign" style="font-size: 14px;"></i>가격</p>
                   </div>
                 </a>
                 <div>
-                    <button type="button"><i class="fa-solid fa-basket-shopping"></i></button>
+                    <button type="button" class="cart"><i class="fa-solid fa-basket-shopping"></i></button>
                 </div>
               </div> -->
         </div>
@@ -69,6 +69,45 @@
     })
   </script>
   <script src="./JS/getPics.js"></script>
+
+  <script>
+    $('body').on('click', '.cart', function(e){
+      e.preventDefault
+
+      let newItem = {
+        name: $(this).parent().prev().find('.name').text(),
+        info: $(this).parent().prev().find('.info').text(),
+        color: $(this).parent().prev().find('.color').text(),
+        price: $(this).parent().prev().find('.price').text().replace(/[^0-9]/g, ""),
+        qty: 1
+      }
+      console.log(newItem)
+      console.log("1")
+
+      let itemList = JSON.parse(localStorage.getItem("allItem"))
+      if (itemList==null) {
+        itemList = []
+      }
+
+      flag = true
+      itemList.forEach(element => {
+        if (element.name == newItem.name && element.color == newItem.color) {
+          element.qty = parseInt(element.qty) + parseInt(newItem.qty)
+          flag = false
+          return false
+        }
+      });
+      if (flag) {itemList.push(newItem)}
+      
+      localStorage.setItem("allItem", JSON.stringify(itemList))
+      console.log(itemList)
+
+      if (confirm("장바구니로 이동할까요?")) {
+        location.href = "./cart.html"
+      }
+
+    })  
+  </script>
 
 </body>
 

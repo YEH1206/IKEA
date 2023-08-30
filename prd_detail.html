@@ -143,7 +143,10 @@
       localStorage.setItem("allItem", JSON.stringify(itemList))
       console.log(itemList)
 
-      location.href = "./cart.html"
+      if (confirm("장바구니로 이동할까요?")) {
+        location.href = "./cart.html"
+      }
+
     })
   </script>
   

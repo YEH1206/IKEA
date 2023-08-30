@@ -21,7 +21,7 @@
 
   <section id="section">
     <div class="header_grid" id="cart_container">
-      <div id="cart_status">
+      <!-- <div id="cart_status">
         <h1>장바구니가 비어있습니다.</h1>
       </div>
 
@@ -58,15 +58,15 @@
       <div id="cart_right">
         <h2>주문내역</h2>
         <div class="order_prd">
-          <span>제품명</span>
-          <span>가격</span>
+          <span>제품명, 색상</span>
+          <span>금액</span>
         </div>
         <div>
           <p>총 주문금액</p>
           <p>금액</p>
         </div>
         <div><button type="submit">결제하기</button></div>
-      </div>
+      </div> -->
     </div>
   </section>
 
@@ -74,12 +74,13 @@
 
   <script>
     let cartList = JSON.parse(localStorage.getItem("allItem"))
+    let prd_list = ''
     console.log(cartList)
     
     function listing(){
-      let prd_list = '<div id="cart_left"><h1>장바구니</h1>'
-      let all = 0
       if (cartList.length) {
+        let all = 0
+        prd_list += '<div id="cart_left"><h1>장바구니</h1>'
         cartList.forEach(value => {
           console.log(value)
           all += parseInt(value.qty) * parseInt(value.price)
@@ -103,27 +104,14 @@
               <div>합계: 
                 <i class="fa-solid fa-won-sign" style="font-size: 12px;"></i>
                 <span class="prd_total">${total}</span>
-                <button style="margin-left: 15px" type="button">삭제</button>
+                <button style="margin-left: 15px" type="button" class="delete_button"><i class="fa-solid fa-x"></i></button>
               </div>
-          </div>
+            </div>
           </div>
         </div>`
         })
         prd_list += `</div><div id="cart_right">
-        <h2>주문내역</h2>`
-        cartList.forEach(value => {
-          prd_list += `
-          <div class="order_prd">
-          <span>${value.name}</span>
-          <span><i class="fa-solid fa-won-sign" style="font-size: 12px;"></i>${(parseInt(value.qty) * parseInt(value.price)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</span>
-          </div>`
-
-        })
-        prd_list += `<div>
-          <span>총 주문금액</span>
-          <span><i class="fa-solid fa-won-sign" style="font-size: 12px;"></i>${all}</span>
-        </div>
-        <div>결제하기</div>
+        
       </div>`
       } else {
         prd_list += 
@@ -139,18 +127,48 @@
       </div>`
       }
 
-      $('#cart_container div').remove()
+      $('#cart_container').empty()
       $('#cart_container').append(prd_list)
+      prd_list = ''
     }
     listing()
 
     function order_list() {
+      let ord_total = 0
+      let ord_list = ''
 
+      console.log(cartList)
+      if (cartList.length) {
+        ord_list += `<h2>주문내역</h2>`
+        cartList.forEach(value => {
+          console.log(value)
+          ord_list += `
+          <div class="order_prd">
+          <span>${value.name}, ${value.color}, ${value.qty}개</span>
+          <span><i class="fa-solid fa-won-sign" style="font-size: 12px;"></i> ${(parseInt(value.qty) * parseInt(value.price)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</span>
+          </div>`
+          ord_total += (parseInt(value.qty) * parseInt(value.price))
+        })
+        ord_list += `<div class="cart_space"></div><div class="total_container">
+          <span>총 주문금액</span>
+          <span><i class="fa-solid fa-won-sign" style="font-size: 12px;"></i> ${ord_total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</span>
+        </div>
+        <div><button type="submit" class="buy">결제하기</button></div>`
+
+        $('#cart_right').empty()
+        $('#cart_right').append(ord_list)
+        ord_list = ''
+      }
     }
+    order_list()
     
+    function pushLocal(data) {
+      localStorage.setItem("allItem", JSON.stringify(data))
+    }
+
   </script>
 
-<script>
+  <script>
   $('body').on('click','.qty__minus', function(){
     let name = $(this).parent().parent().prev().find(".name").text()
     let color = $(this).parent().parent().prev().find(".color").text()
@@ -167,12 +185,13 @@
         return false
       }
     })
+    pushLocal(cartList)
     let total = parseInt($(this).parent().parent().prev().children('.prd_price').text().replace(/[^0-9]/g, "")) * quantity
     total = total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
     // console.log(total)
     // console.log($(this).parent().next().find('.prd_total').text())
     $(this).parent().next().find('.prd_total').text(total)
-    console.log(cartList)
+    order_list()
   })
 
   $('body').on('click','.qty__plus', function(){
@@ -190,10 +209,39 @@
         return false
       }
     })
+    pushLocal(cartList)
     let total = parseInt($(this).parent().parent().prev().children('.prd_price').text().replace(/[^0-9]/g, "")) * quantity
     total = total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
     $(this).parent().next().find('.prd_total').text(total)
     console.log(cartList)
+    order_list()
+  })
+
+  $('body').on('click', '.delete_button', function(){
+    let name = $(this).parent().parent().prev().find(".name").text()
+    let color = $(this).parent().parent().prev().find(".color").text()
+    let now = 0
+    let where = ''
+    cartList.forEach(element => {
+      if(element.name == name && element.color == color) {
+        where = now
+        console.log(where)
+        console.log(element.name)
+        return false
+      }
+      now ++
+    })
+    cartList.splice(where, 1)
+    pushLocal(cartList)
+    listing()
+    order_list()
+  })
+
+  $('body').on('click', '.buy', function(){
+    localStorage.clear()
+    cartList = []
+    listing()
+    order_list()
   })
 </script>
   

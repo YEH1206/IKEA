@@ -200,23 +200,34 @@ html, body {height: 100%;}
 #all_container .one_container > div button:active {background-color: #00437d;}
 
 /* cart.html */
-#cart_container {margin-top: 50px;}
+#cart_container {}
 #cart_status, #cart_contents {grid-column: 2 / 14;}
 #cart_status {margin: 40px 0;}
 #cart_status h1 {color: #111; font-size: 36px;}
 #cart_login {border: 1px solid #dfdfdf; padding: 32px 20px; border-radius: 5px;}
 #cart_login h2 {color: #111;}
-#cart_left {grid-column: 2 / span 7;}
+#cart_left {grid-column: 2 / span 7; margin-top: 50px;}
 #cart_left h1 {font-size: 36px; color: #111; margin-bottom: 10px; }
+#cart_left .delete_button {width: auto; height: auto;}
+#cart_left .delete_button i {line-height: 15px; font-size: 15px;}
 .cart_one_prd {display: flex; flex-direction: row; padding: 2rem 0; border-bottom: 1px solid #aaa;}
 .cart_one_prd div:nth-child(1) {padding: 20px;}
 .cart_one_prd div:nth-child(2) ul li {margin: 2px 0;}
 .cart_one_prd div:nth-child(2) ul li:nth-child(1) {color: #484848; font-size: 16px; font-weight: bold;}
 .cart_one_prd div:nth-child(3) {text-align: right;}
 #cart_left img {width: 140px; height: 140px; object-fit: cover;}
-#cart_right {grid-column: 10 / 14;}
+#cart_right {grid-column: 10 / 14; margin-top: 50px;}
 #cart_qty_form {padding: 0; }
 #cart_qty_form button {width: 25px; height: 25px; border-radius: 50%; border: none; font-weight: bold; margin-top: 50px; margin-bottom: 20px;}
 #cart_qty_form button:active {background-color: #aaa;}
 #cart_qty_form input {width: 50px; text-align: center;}
-#cart_right h2 {color: #111; margin-bottom: 20px;}
+#cart_right h2 {color: #111; margin-bottom: 20px; font-size: 30px;}
+#cart_right .order_prd {justify-content: space-between; display: flex; margin-bottom: 3px;}
+#cart_right .order_prd span:nth-child(1) {font-weight: bold;}
+#cart_right .cart_space {height: 30px; border-bottom: 2px solid black;}
+#cart_right .total_container {margin-top: 30px; justify-content: space-between; display: flex; line-height: 30px;}
+#cart_right .total_container span {line-height: 30  px;}
+#cart_right .total_container span:nth-child(1) {font-weight: bold; color: #111;}
+#cart_right .total_container span:nth-child(2) {font-size: 20px; font-weight: bold; color: black;}
+#cart_right div:last-of-type button {width: 100%; margin-top: 30px; padding: auto; height: 100px; background-color: #0058a3; border-radius: 4px; border: none; color: white; font-weight: bold; font-size: 20px; cursor: pointer;}
+#cart_right div:last-of-type button:active {background-color: #00437d;}
