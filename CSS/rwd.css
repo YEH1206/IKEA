@@ -7,7 +7,7 @@
 }
 
 @media screen and (max-width:1200px){
-    #section .grid {display: block; padding-inline-start: 3rem; padding-inline-end: 3rem; max-width: 112rem;}
+    #section .grid {display: block; padding-inline-start: 2rem; padding-inline-end: 0rem; max-width: 112rem;}
     #rooms_container > div {flex-basis: calc(49.99% - 1.25rem);}
     #banner {flex-direction: column;}
     #banner .image_wrapper {width: 100%;}
@@ -31,9 +31,10 @@
 }
 
 @media screen and (max-width:900px){
-    #section .grid {display: block; padding-inline-start: 2rem; padding-inline-end: 2rem; max-width: 112rem;}
+    #section .grid {display: block; padding-inline-start: 0rem; padding-inline-end: 0rem; max-width: 112rem;}
     .header_grid {padding-inline-start: 3rem; padding-inline-end: 2rem;}
     #all_container {display: grid; column-gap: 1.75rem; grid-template-columns: repeat(3, minmax(0, 1fr));}
+
 }
 
 @media screen and (max-width:640px) {
@@ -66,7 +67,7 @@
 
 @media screen and (max-width:600px){
     #section .grid > div h1 {font-size: 1.5rem; line-height: 1.45; letter-spacing: -0.0042em;}
-    #section .grid {display: block; padding-inline-start: 1.25rem; padding-inline-end: 1.25rem; max-width: 112rem;}
+    #section .grid {display: block; padding-inline-start: 0rem; padding-inline-end: 0rem; max-width: 112rem;}
     #rooms_container > div {flex-basis: calc(100% - 1.25rem);}
     #all_container {display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));}
 }
