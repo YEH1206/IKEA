@@ -19,20 +19,183 @@
 <body>
   <div class="header"></div>
 
-  <div grid>
-    <div>
-      <h1>장바구니가 비어있습니다.</h1>
-    </div>
-    <div>
-      <h2>추천 제품</h2>
-      <div>
-        
+  <section id="section">
+    <div class="header_grid" id="cart_container">
+      <div id="cart_status">
+        <h1>장바구니가 비어있습니다.</h1>
+      </div>
+
+      <div id="cart_contents">
+        <div id="cart_login">
+          <h2>로그인</h2>
+          <p><a href="./login.html">로그인 또는 회원가입</a>하면 더 편리하게 이용하실 수 있어요.</p>
+        </div>
+      </div>
+
+      <div id="cart_left">
+        <h1>장바구니</h1>
+        <div class="cart_one_prd">
+          <div><img src="./Images/Prd/BRUNSTA 브룬스타.avif" alt="제품명"></div>
+          <div>
+            <ul>
+              <li>제품명</li>
+              <li>인포</li>
+              <li>색상</li>
+              <li>가격</li>
+            </ul>
+            <div id="cart_qty">
+              <div id="cart_qty_form">
+                <button type="button" class="qty__minus">-</button>
+                <input type="text" value="1">
+                <button type="button" class="qty__plus">+</button>
+              </div>
+              <div><i class="fa-solid fa-won-sign" style="font-size: 14px;"></i> 가격</div>
+              <div><button type="button">삭제</button></div>
+          </div>
+          </div>
+        </div>
+      </div>
+      <div id="cart_right">
+        <h2>주문내역</h2>
+        <div class="order_prd">
+          <span>제품명</span>
+          <span>가격</span>
+        </div>
+        <div>
+          <p>총 주문금액</p>
+          <p>금액</p>
+        </div>
+        <div><button type="submit">결제하기</button></div>
       </div>
     </div>
-  </div>
-  
+  </section>
 
   <script src="./JS/common.js"></script>
+
+  <script>
+    let cartList = JSON.parse(localStorage.getItem("allItem"))
+    console.log(cartList)
+    
+    function listing(){
+      let prd_list = '<div id="cart_left"><h1>장바구니</h1>'
+      let all = 0
+      if (cartList.length) {
+        cartList.forEach(value => {
+          console.log(value)
+          all += parseInt(value.qty) * parseInt(value.price)
+          let total = (parseInt(value.qty) * parseInt(value.price)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+          prd_list += `
+          <div class="cart_one_prd">
+          <div><img src="./Images/Prd/${value.name}${value.color}.webp" alt="${value.name}_${value.color}"></div>
+          <div style="margin-left: 50px; width: auto">
+            <ul>
+              <li class="name">${value.name}</li>
+              <li>${value.info}</li>
+              <li class="color">${value.color}</li>
+              <li class="prd_price">${(value.price).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원</li>
+            </ul>
+            <div id="cart_qty">
+              <div id="cart_qty_form">
+                <button type="button" class="qty__minus">-</button>
+                <input type="text" value="${value.qty}">
+                <button type="button" class="qty__plus">+</button>
+              </div>
+              <div>합계: 
+                <i class="fa-solid fa-won-sign" style="font-size: 12px;"></i>
+                <span class="prd_total">${total}</span>
+                <button style="margin-left: 15px" type="button">삭제</button>
+              </div>
+          </div>
+          </div>
+        </div>`
+        })
+        prd_list += `</div><div id="cart_right">
+        <h2>주문내역</h2>`
+        cartList.forEach(value => {
+          prd_list += `
+          <div class="order_prd">
+          <span>${value.name}</span>
+          <span><i class="fa-solid fa-won-sign" style="font-size: 12px;"></i>${(parseInt(value.qty) * parseInt(value.price)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</span>
+          </div>`
+
+        })
+        prd_list += `<div>
+          <span>총 주문금액</span>
+          <span><i class="fa-solid fa-won-sign" style="font-size: 12px;"></i>${all}</span>
+        </div>
+        <div>결제하기</div>
+      </div>`
+      } else {
+        prd_list += 
+        `<div id="cart_status">
+        <h1>장바구니가 비어있습니다.</h1>
+      </div>
+
+      <div id="cart_contents">
+        <div id="cart_login">
+          <h2>로그인</h2>
+          <p><a href="./login.html">로그인 또는 회원가입</a>하면 더 편리하게 이용하실 수 있어요.</p>
+        </div>
+      </div>`
+      }
+
+      $('#cart_container div').remove()
+      $('#cart_container').append(prd_list)
+    }
+    listing()
+
+    function order_list() {
+
+    }
+    
+  </script>
+
+<script>
+  $('body').on('click','.qty__minus', function(){
+    let name = $(this).parent().parent().prev().find(".name").text()
+    let color = $(this).parent().parent().prev().find(".color").text()
+    // console.log(name)
+    // console.log(color)
+    let quantity = $(this).next().val()
+    if(quantity > 1){
+      quantity = parseInt(quantity)
+      $(this).next().val(--quantity)
+    }
+    cartList.forEach(element => {
+      if(element.name == name && element.color == color) {
+        element.qty = quantity
+        return false
+      }
+    })
+    let total = parseInt($(this).parent().parent().prev().children('.prd_price').text().replace(/[^0-9]/g, "")) * quantity
+    total = total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+    // console.log(total)
+    // console.log($(this).parent().next().find('.prd_total').text())
+    $(this).parent().next().find('.prd_total').text(total)
+    console.log(cartList)
+  })
+
+  $('body').on('click','.qty__plus', function(){
+    // console.log('1')
+    let name = $(this).parent().parent().prev().find(".name").text()
+    let color = $(this).parent().parent().prev().find(".color").text()
+    let quantity = $(this).prev().val()
+    if(quantity){
+      quantity = parseInt(quantity)
+      $(this).prev().val(++quantity)
+    }
+    cartList.forEach(element => {
+      if(element.name == name && element.color == color) {
+        element.qty = quantity
+        return false
+      }
+    })
+    let total = parseInt($(this).parent().parent().prev().children('.prd_price').text().replace(/[^0-9]/g, "")) * quantity
+    total = total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+    $(this).parent().next().find('.prd_total').text(total)
+    console.log(cartList)
+  })
+</script>
   
 </body>
 

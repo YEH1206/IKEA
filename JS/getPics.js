@@ -69,17 +69,16 @@ function getDetailPics(element) {
                 <ul>`
         for (let i = 0; i < element.sub_items.length; i++) {
             let item = element.sub_items[i]
-            console.log(item)
             detailPics += 
             `<li>
             <a href="prd_detail.html?${item.name}" class="image_dot" style="top: ${item.place[0]}; left:${item.place[1]};"></a>
             <div style="display: none;">
               <a href="prd.html?${item.name}">
-                <div style="border-radius: 3px; position: absolute; top: ${item.place[2]}; left:${item.place[3]}">
+                <div style="border-radius: 3px; position: absolute; top: ${item.place[2]}; left:${item.place[3]};">
                   <div style="width: 130px;">
-                    <h3><span style="font-size: 14px; margin-bottom: 4px;">${item.name}</span></h3>
+                    <h3><span style="font-size: 14px;">${item.name}</span></h3>
                     <span style="font-size: 14px; margin-bottom: 4px;">${item.info}</span>
-                    <span style="font: 22px;"><i class="fa-solid fa-won-sign" style="font-size: 11px;"></i> ${item.price}</span>
+                    <span style="font: 22px;"><i class="fa-solid fa-won-sign" style="font-size: 11px;"></i> ${item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</span>
                   </div>
                 </div>
               </a>
@@ -98,6 +97,7 @@ function getDetailPics(element) {
 }
 
 function getPrdDetail(element){
+    console.log(element)
     let prd_pic = ''
     prd_pic += `
         <img src="./Images/Prd/${element.name}.avif" alt="${element.name}">
@@ -106,7 +106,6 @@ function getPrdDetail(element){
             </p>
             <p>제품번호<br><span>${element.prd_num}</span></p>
           </div>`
-    console.log(prd_pic)
     $('#prd_left').append(prd_pic)
 
     let prd_info = ''
@@ -114,13 +113,17 @@ function getPrdDetail(element){
           <div id="prd_info_box">
             <h1>${element.name}</h1>
             <p id="prd_info">${element.info}</p>
-            <span><i class="fa-solid fa-won-sign" style="font-size: 14px;"></i> ${element.price}</span>
+            <span><i class="fa-solid fa-won-sign" style="font-size: 14px;"></i> ${element.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</span>
             <div>
               <p>색상 선택</p>
-              <span id="picked_color">색상</span>
-              <div>`
+              <span id="picked_color">${element.color}</span>
+              <div class="picked_color_img">`
     for (let i = 0; i < element.color.length; i++) {
-        prd_info += `<img src="./Images/Prd/${element.name}${i}.webp" alt="${element.name}"></img>`
+      if (i==0) {
+        prd_info += `<img class="selected" src="./Images/Prd/${element.name}${element.color[i]}.webp" alt="${element.color[i]}"></img>`
+      } else{
+        prd_info += `<img src="./Images/Prd/${element.name}${element.color[i]}.webp" alt="${element.color[i]}"></img>`
+      }
     }
     prd_info += `</div>
             </div>
@@ -128,10 +131,10 @@ function getPrdDetail(element){
           <div id="prd_buttons">
             <div id="prd_qty_form">
               <button type="button" class="qty__minus">-</button>
-              <input type="text" value="1">
+              <input type="text" value="1" class="qty__input">
               <button type="button" class="qty__plus">+</button>
             </div>
-            <button type="button">구매하기</button>
+            <button type="submit" class="cart">구매하기</button>
           </div>
         </div>`
     $('#prd_right').append(prd_info)
@@ -149,7 +152,7 @@ function getAllPrd(data){
           <div class="one_info">
             <h2>${element.name}</h2>
             <p>${element.info}</p>
-            <p><i class="fa-solid fa-won-sign" style="font-size: 14px;"></i> ${element.price}</p>
+            <p><i class="fa-solid fa-won-sign" style="font-size: 14px;"></i> ${element.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</p>
           </div></a>
         <div>
             <button type="submit"><i class="fa-solid fa-basket-shopping"></i></button>
