@@ -254,7 +254,7 @@ html, body {height: 100%;}
 #cart_qty_form {padding: 0; }
 #cart_qty_form button {width: 25px; height: 25px; border-radius: 50%; border: none; font-weight: bold; margin-top: 50px; margin-bottom: 20px;}
 #cart_qty_form button:active {background-color: #aaa;}
-#cart_qty_form input {width: 50px; text-align: center;}
+#cart_qty_form input {width: 30px; text-align: center;}
 #cart_right h2 {color: #111; margin-bottom: 20px; font-size: 30px;}
 #cart_right .order_prd {justify-content: space-between; display: flex; margin-bottom: 3px;}
 #cart_right .order_prd span:nth-child(1) {font-weight: bold;}
@@ -265,3 +265,4 @@ html, body {height: 100%;}
 #cart_right .total_container span:nth-child(2) {font-size: 20px; font-weight: bold; color: black;}
 #cart_right div:last-of-type button {width: 100%; margin-top: 30px; padding: auto; height: 100px; background-color: #0058a3; border-radius: 4px; border: none; color: white; font-weight: bold; font-size: 20px; cursor: pointer;}
 #cart_right div:last-of-type button:active {background-color: #00437d;}
+.cart_one_prd > div:nth-of-type(2) {margin-left: 50px; }
