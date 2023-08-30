@@ -1,6 +1,6 @@
-function getRoomPics(rdata) {
+function getRoomPics(relement) {
     let roomPics = ''
-    rdata.forEach(element => {
+    relement.forEach(element => {
         roomPics += 
             `<div>
                 <div>
@@ -20,9 +20,9 @@ function getRoomPics(rdata) {
     $('#rooms_container').append(roomPics)
 }
 
-function getGalleryPics(room, data) {
+function getGalleryPics(room, element) {
     let galleryPics = ''
-    data.forEach(element => {
+    element.forEach(element => {
         galleryPics +=
         `<div>
             <div>
@@ -41,17 +41,17 @@ function getGalleryPics(room, data) {
     $('#rooms_container').append(galleryPics)
 }
 
-function getDetailPics(data) {
+function getDetailPics(element) {
     let detailPics = ''
     detailPics += 
         `<div>
-            <h1 class="current">${data.name}</h1>
-            <p>${data.info}</p>
+            <h1 class="current">${element.name}</h1>
+            <p>${element.info}</p>
             <div id="main_pic">
-            <span><img src="./Images/Rooms/${data.image}.avif" alt="${data.name}"></span>
+            <span><img src="./Images/Rooms/${element.image}.avif" alt="${element.name}"></span>
             </div>
         </div>`
-    data.detail.forEach(element => {
+    element.detail.forEach(element => {
         detailPics += 
         `<div>
             <div class="detail_grid">
@@ -97,14 +97,14 @@ function getDetailPics(data) {
     $('#detail_contents').append(detailPics)
 }
 
-function getPrdDetail(data){
+function getPrdDetail(element){
     let prd_pic = ''
     prd_pic += `
-        <img src="./Images/Prd/${data.name}.avif" alt="${data.name}">
+        <img src="./Images/Prd/${element.name}.avif" alt="${element.name}">
           <div>
-            <p>${data.narr}
+            <p>${element.narr}
             </p>
-            <p>제품번호<br><span>${data.prd_num}</span></p>
+            <p>제품번호<br><span>${element.prd_num}</span></p>
           </div>`
     console.log(prd_pic)
     $('#prd_left').append(prd_pic)
@@ -112,15 +112,15 @@ function getPrdDetail(data){
     let prd_info = ''
     prd_info += `
           <div id="prd_info_box">
-            <h1>${data.name}</h1>
-            <p id="prd_info">${data.info}</p>
-            <span><i class="fa-solid fa-won-sign" style="font-size: 14px;"></i> ${data.price}</span>
+            <h1>${element.name}</h1>
+            <p id="prd_info">${element.info}</p>
+            <span><i class="fa-solid fa-won-sign" style="font-size: 14px;"></i> ${element.price}</span>
             <div>
               <p>색상 선택</p>
               <span id="picked_color">색상</span>
               <div>`
-    for (let i = 0; i < data.color.length; i++) {
-        prd_info += `<img src="./Images/Prd/${data.name}${i}.webp" alt="${data.name}"></img>`
+    for (let i = 0; i < element.color.length; i++) {
+        prd_info += `<img src="./Images/Prd/${element.name}${i}.webp" alt="${element.name}"></img>`
     }
     prd_info += `</div>
             </div>
@@ -135,4 +135,26 @@ function getPrdDetail(data){
           </div>
         </div>`
     $('#prd_right').append(prd_info)
+}
+
+function getAllPrd(data){
+    let all_prd = ''
+    data.forEach(element => {
+        all_prd +=
+        `<div class="one_container">
+        <a href="./prd_detail.html?${element.name}" style="text-decoration: none;">
+          <div class="one_img">
+            <img src="./Images/Prd/${element.name}.avif" alt="${element.name}">
+          </div>
+          <div class="one_info">
+            <h2>${element.name}</h2>
+            <p>${element.info}</p>
+            <p><i class="fa-solid fa-won-sign" style="font-size: 14px;"></i> ${element.price}</p>
+          </div></a>
+        <div>
+            <button type="submit"><i class="fa-solid fa-basket-shopping"></i></button>
+        </div>
+      </div>`
+    })
+    $('#all_container').append(all_prd)
 }

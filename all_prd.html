@@ -30,36 +30,46 @@
             <ul>
                 <li>카테고리</li>
                 <li>가격</li>
-                <li>색상</li>
             </ul>
         </div>
         <div id="all_container">
-            <div id="one_container">
-                <div class="one_img">
+              <!-- <div class="one_container">
+                <a href="./prd_detail.html?ALEX 알렉스" style="text-decoration: none;">
+                  <div class="one_img">
                     <img src="./Images/Prd/ALEX 알렉스.avif" alt="ALEX 알렉스">
-                </div>
-                <div class="one_info">
+                  </div>
+                  <div class="one_info">
                     <h2>제품명</h2>
                     <p>제품설명</p>
-                    <p>가격</p>
-                </div>
+                    <p><i class="fa-solid fa-won-sign" style="font-size: 14px;"></i>가격</p>
+                  </div>
+                </a>
                 <div>
-                    <i class="fa-solid fa-basket-shopping"></i>
+                    <button type="button"><i class="fa-solid fa-basket-shopping"></i></button>
                 </div>
-            </div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
+              </div> -->
         </div>
       </div>
     </div>
   </section>
-
   <script src="./JS/common.js"></script>
-  
+
+  <script>
+    $.ajax({
+      type: 'GET',
+      url: './JS/products.json',
+      dataType: 'json',
+      success: function (rdata) {
+        console.log(rdata)
+        getAllPrd(rdata)
+      },
+      error: function (xhr) {
+        alert(xhr.status + "/" + xhr.errorText)
+      }
+    })
+  </script>
+  <script src="./JS/getPics.js"></script>
+
 </body>
 
 </html>
