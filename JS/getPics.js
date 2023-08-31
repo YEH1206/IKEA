@@ -42,59 +42,61 @@ function getGalleryPics(room, element) {
 }
 
 function getDetailPics(element) {
-    let detailPics = ''
-    detailPics += 
-        `<div>
-            <h1 class="current">${element.name}</h1>
-            <p>${element.info}</p>
-            <div id="main_pic">
-            <span><img src="./Images/Rooms/${element.image}.avif" alt="${element.name}"></span>
-            </div>
-        </div>`
-    element.detail.forEach(element => {
-        detailPics += 
-        `<div>
-            <div class="detail_grid">
-            <div class="detail_info">
-                <div>
-                <h2>${element.sub_name}</h2>
-                <p>${element.sub_detail}</p>
-                </div>
-            </div>
-            <div class="detail_pic">
-                <div>
-                <span><img src="./Images/Rooms/${element.sub_image}.avif" alt="${element.sub_name}"></span>
-                </div>
-                <div style="position:relative">
-                <ul>`
-        for (let i = 0; i < element.sub_items.length; i++) {
-            let item = element.sub_items[i]
-            detailPics += 
-            `<li>
-            <a href="./prd_detail.html?${item.name}" class="image_dot" style="top: ${item.place[0]}; left:${item.place[1]}; position: relative"></a>
-            <div style="display: none;">
-              <a href="prd.html?${item.name}">
-                <div style="border-radius: 3px; position: absolute; top: ${item.place[2]}; left:${item.place[3]};">
-                  <div style="width: 130px;">
-                    <h3><span style="font-size: 14px;">${item.name}</span></h3>
-                    <span style="font-size: 14px; margin-bottom: 4px;">${item.info}</span>
-                    <span style="font: 22px;"><i class="fa-solid fa-won-sign" style="font-size: 11px;"></i> ${item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</span>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </li>`
-        }
-        
-        detailPics += 
-                `</ul>
+  let detailPics = ''
+  detailPics += 
+      `<div>
+          <h1 class="current">${element.name}</h1>
+          <p>${element.info}</p>
+          <div id="main_pic">
+          <span><img src="./Images/Rooms/${element.image}.avif" alt="${element.name}"></span>
+          </div>
+      </div>`
+  element.detail.forEach(element => {
+      detailPics += 
+      `<div>
+          <div class="detail_grid">
+          <div class="detail_info">
+              <div>
+              <h2>${element.sub_name}</h2>
+              <p>${element.sub_detail}</p>
               </div>
+          </div>
+          <div class="detail_pic">
+              <div>
+              <span><img src="./Images/Rooms/${element.sub_image}.avif" alt="${element.sub_name}"></span>
+              </div>
+              <div>
+              <ul>`
+      for (let i = 0; i < element.sub_items.length; i++) {
+          let item = element.sub_items[i]
+          console.log(item)
+          detailPics += 
+          `<li>
+          <a href="prd_detail.html?${item.name}" class="image_dot" style="top: ${item.place[0]}; left:${item.place[1]};"></a>
+          <div style="display: none;">
+            <a href="prd.html?${item.name}">
+              <div style="border-radius: 3px; position: absolute; top: ${item.place[2]}; left:${item.place[3]}">
+                <div style="width: 130px;">
+                  <h3><span style="font-size: 14px; margin-bottom: 4px;">${item.name}</span></h3>
+                  <span style="font-size: 14px; margin-bottom: 4px;">${item.info}</span>
+                  <span style="font: 22px;"><i class="fa-solid fa-won-sign" style="font-size: 11px;"></i> ${item.price}</span>
+                </div>
+              </div>
+            </a>
+          </div>
+        </li>`
+      }
+      
+      detailPics += 
+              `</ul>
             </div>
-            </div>
-        </div>`
-    })
-    $('#detail_contents').append(detailPics)
+          </div>
+          </div>
+      </div>`
+  })
+  $('#detail_contents').append(detailPics)
 }
+
 
 function getPrdDetail(element){
     console.log(element)

@@ -143,47 +143,12 @@ html, body {height: 100%;}
 #detail_contents .detail_info p {width: 100%!important; margin: 0!important; font-size: .875rem!important; min-height: 100%; line-height: 1.571!important; word-wrap: break-word; letter-spacing: -0.0042em;}
 .detail_pic li {position: absolute; top: 0;}
 .detail_pic li a {text-decoration: none;}
-.detail_pic li > div > a > div {display: flex; flex-direction: row; transition: transform 250ms ease-in-out; justify-content: space-between;
-  width: 100%;
-  text-align: initial;
-  text-decoration: none;
-  color: rgb(17, 17, 17);
-  background-color: rgb(255, 255, 255);
-  box-shadow: 0 1px 4px rgba(17, 17, 17, 0.55); 
-  min-width: 8.4375rem;
-  max-width: 11.25rem;}
-  .detail_pic li > div > a > div > div {margin: 0.75rem;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;}
-    .detail_pic li > div > a > div > div h3 {margin-bottom: 0.5rem; color: rgb(17, 17, 17);
-      font-size: 1rem;
-      line-height: 1.5;
-      font-weight: 700;
-  };
+.detail_pic li > div > a > div {display: flex; flex-direction: row; transition: transform 250ms ease-in-out; justify-content: space-between; width: 100%;text-align: initial;text-decoration: none;color: rgb(17, 17, 17);background-color: rgb(255, 255, 255);box-shadow: 0 1px 4px rgba(17, 17, 17, 0.55); min-width: 8.4375rem; max-width: 11.25rem;}
+.detail_pic li > div > a > div > div {margin: 0.75rem; flex-grow: 1; display: flex; flex-direction: column;}
+.detail_pic li > div > a > div > div h3 {margin-bottom: 0.5rem; color: rgb(17, 17, 17); font-size: 1rem; line-height: 1.5; font-weight: 700;}
 .detail_pic li > div > a > div span {display: block;}
-.image_dot {
-  width: 2rem;
-  height: 2rem;
-  border: 2px solid transparent;
-  position: absolute;
-  background: rgba(17, 17, 17, 0.2);
-  opacity: 1;
-  visibility: visible;
-  border-radius: 64px;
-  line-height: .5;
-  display: flex;
-  align-items: center;
-  justify-content: center;}
-.image_dot::after  {content: "";
-  transition: transform 250ms ease-in-out;
-  position: relative;
-  display: block;
-  background: rgb(255, 255, 255);
-  box-shadow: 0 1px 4px rgba(var17, 17, 17, 0.55);
-  width: 0.75rem;
-  height: 0.75rem;
-  border-radius: 64px;}
+.image_dot { width: 2rem; height: 2rem; border: 2px solid transparent; position: absolute; background: rgba(17, 17, 17, 0.2); opacity: 1; visibility: visible; border-radius: 64px; line-height: .5; display: flex; align-items: center; justify-content: center;}
+.image_dot::after  {content: ""; transition: transform 250ms ease-in-out; position: relative; display: block; background: rgb(255, 255, 255); box-shadow: 0 1px 4px rgba(var17, 17, 17, 0.55); width: 0.75rem; height: 0.75rem; border-radius: 64px;}
 .image_dot:hover {transition: border-color 250ms ease-in-out; border-color: #555;}
 .image_dot:hover + div {display: block!important;}
 
