@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js" integrity="sha512-jGsMH83oKe9asCpkOVkBnUrDDTp8wl+adkB2D+//JtlxO4SrLoJdhbOysIFQJloQFD+C4Fl1rMsQZF76JjV0eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="./CSS/index.css">
+    <link rel="stylesheet" href="./CSS/rwd2.css">
+</head>
+<body>
+    <style>
+          @charset "utf-8" ;
+* { padding:0; margin:0; box-sizing:border-box }
+ul, ol { list-style: none; }
+a { text-decoration:none; color:inherit }
+.cf::after { content:''; display:block; clear:both }
+/* img { max-width:100%; } */
+table { width:100%; border-collapse:collapse; table-layout: fixed; }
+.row { max-width:1200px; margin:0 auto; }
+button { border:none; cursor:pointer; }
+::placeholder { font-size:13px; color:red }
+.blind { position:absolute; width:1px; height:1px; overflow:hidden;
+    line-height:0px; text-indent:-9999px; font-size:0px; }
+        article {width:1200px;}
+        h2{font-size: 36px; margin:50px 0;}
+        .eventPay {font-size: 14px; color:rgb(131,131,122); display:flex; margin: 0 10px; }
+        .eventPay p {margin:10px 0px;}
+        .eventPay img { width:585px; margin-left: 10px;}
+        .ptag {display:flex; align-items: center;color:rgb(131,131,122);}
+        .ptag_1 {font-size: 14px; text-decoration: underline;color:rgb(131,131,122);}
+        .ptag_2 {font-size: 14px; text-decoration: underline;color:rgb(131,131,122);}
+        .ptag_3 {font-size: 14px; text-decoration: underline;color:rgb(131,131,122);}
+        hr{ margin: 50px auto ; border:none; border-top:1px solid rgb(224, 216, 216);
+  width:1200px;}
+  
+    </style>
+<header id="header" class="row">
+    <div class="overlay"></div>
+    <div class="header_container">
+        <div class="header_box">
+            <div class="logo"><a href="./index.html"><img src="./image/ikea-logo.f7d9229f806b59ec64cb.svg" alt=""></a></div>
+            <div class="search_box">
+                <span><i class="fa-solid fa-magnifying-glass"></i></span>
+                <input type="text" placeholder="검색어 입력">
+                <span><i class="fa-solid fa-camera-retro"></i></span>
+            </div>
+            <ul class="user">
+                <li class="join"><a href="./login.html"><i class="fa-regular fa-user"></i><span>Hej!로그인 또는 가입하기</span></a></li>
+                <li class="liked"><a href="javascript:;"><i class="fa-regular fa-heart"></i></a></li>
+                <li class="shopping"><a href="cart.html"><i class="fa-solid fa-basket-shopping"></i></a></li>
+                <li class="opensidemenu"><button><span><i class="fa-solid fa-bars"></i></span></button></li>
+            </ul>
+        </div>
+    </div>
+    <div class="sidemenu">
+        <div class="sidemenu_top">
+            <div class="sidemenu_close">
+                <button type="button" class="sclosebtn">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="logo">
+                <a href="./index.html">
+                    <img src="./image/ikea-logo.f7d9229f806b59ec64cb.svg" alt="">
+                </a>
+            </div>
+        </div>
+        <nav class="sidenav">
+            <ul class="bcate">
+                <li><a href="./all_prd.html">모든 제품</a></li>
+                <li><a href="./rooms.html">공간별 쇼핑하기</a></li>
+                <li><a href="./notice.html">새로운 소식</a></li>
+                <li><a href="javascript:;">홈 액세서리</a></li>
+                <li><a href="javascript:;">서비스</a></li>
+                <li><a href="javascript:;">특별한 가격</a></li>
+                <li><a href="javascript:;">아이디어</a></li>
+                <li><a href="javascript:;">셀프 플래닝</a></li>
+            </ul>
+            <ul class="scate">
+                <li><a href="javascript:;">매장안내</a></li>
+                <li><a href="javascript:;">레스토랑&카페</a></li>
+                <li><a href="javascript:;">쉽고 편한 전화 주문,헤이오더</a></li>
+                <li><a href="javascript:;">IKEA Live</a></li>
+                <li><a href="javascript:;">IKEA Family</a></li>
+                <li><a href="javascript:;">IKEA for Business</a></li>
+                <li><a href="javascript:;">고객지원</a></li>
+                <li><a href="javascript:;">배송조회</a></li>
+                <li><a href="javascript:;">내 프로필</a></li>
+            </ul>
+        </nav>
+        <div class="sidemenufooter">
+            <div class="language-selector">
+                <select>
+                    <option value="#">한국어</option>
+                    <option value="#">English</option>
+                </select>
+                <span><i class="fa-solid fa-chevron-down"></i></span>
+            </div>
+            <a href="javascript:;" class="changecountry">
+                <span><i class="fa-solid fa-globe"></i>국가변경</span>
+            </a>
+        </div>
+    </div>
+</header>
+    <article class="row">
+        <h2>결제 방법</h2>
+        <div class="eventPay">
+            <p>IKEA는 누구나 멋진 디자인과 기능을 갖춘 집에서 생활할 권리가 있고, 이를 위해 상품을 결제하는 일이 어렵지 않아야 한다고 생각합니다. 그래서 매장과 온라인 쇼핑 시 이용 가능한 여러 가지 결제 방법을 제공하고 있습니다.</p>
+            <img src="./image/휴대폰으로 IKEA 웹사이트를 보고 있는 여성.jpg" alt="">
+        </div>
+        <div class="ptag">
+            <p class="ptag_1">IKEA에서 결제하는 방법</p>
+            &nbsp; | &nbsp;
+            <p class="ptag_2">전자 영수증 안내</p>
+            &nbsp; | &nbsp;
+            <p class="ptag_3">IKEA with 신한 카드</p>
+        </div>
+        <hr>
+    </article>
+
+    <div class="footer"></div>
+    <script src="./JS/common.js"></script>
+
+</body>
+</html>

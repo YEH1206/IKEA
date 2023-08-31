@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js" integrity="sha512-jGsMH83oKe9asCpkOVkBnUrDDTp8wl+adkB2D+//JtlxO4SrLoJdhbOysIFQJloQFD+C4Fl1rMsQZF76JjV0eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="./CSS/index.css">
+    <link rel="stylesheet" href="./CSS/rwd2.css">
+    <link rel="stylesheet" href="./CSS/index.css">
+  <link rel="stylesheet" href="./CSS/rwd2.css">
+</head>
+<body>
+    <style>
+        @charset "utf-8" ;
+* { padding:0; margin:0; box-sizing:border-box }
+ul, ol { list-style: none; }
+a { text-decoration:none; color:inherit }
+.cf::after { content:''; display:block; clear:both }
+/* img { max-width:100%; } */
+table { width:100%; border-collapse:collapse; table-layout: fixed; }
+.row { max-width:1200px; margin:0 auto; }
+button { border:none; cursor:pointer; }
+::placeholder { font-size:13px; color:red }
+.blind { position:absolute; width:1px; height:1px; overflow:hidden;
+    line-height:0px; text-indent:-9999px; font-size:0px; }
+body {font-size:14px; }    
+#eventHeader h1 {font-size:36px; font-weight: bold;
+    margin-bottom: 50px;
+    word-break: break-word;}
+#eventHeader h2 {font-size: 24px; color:rgb(66, 59, 59); margin-bottom: 50px;}
+#eventHeader p {font-size:13px; color:rgb(131, 131, 122) ; display:block; width:690px; text-align:start;
+margin-bottom: 50px; }
+#eventHeader img {width:585px; height:585px;}
+.eventArticle1 {display:flex; margin-bottom: 80px;}
+.eventArticle2 {display:flex; width:33%; flex-wrap: nowrap; justify-content: flex-start; padding:10px}
+.restaurant {margin-left: 15px;}
+.eventArticle1 h3 {font-size: 16px; margin-bottom: 8px;}
+.restaurantdetail_1 { font-size:14px; color:rgb(131,131,122); margin-bottom: 12px;}
+.restaurantdetail_2 { font-size:14px; color:rgb(131,131,122); margin-bottom: 36px;}
+.commonMenu {border:1px solid black; width:160px; padding:8px 24px; text-align: center; font-size: 12px;
+    border-radius:64px ; background-color: rgb(32, 31, 31); color:rgb(248, 238, 238); font-weight: bold;
+margin-bottom: 50px; }
+.commonMenu_2 { font-size:14px; color:rgb(131,131,122); margin-bottom: 12px; font-style: italic;}  
+.commonMenu_3 { font-size:14px; color:rgb(131,131,122); margin-bottom: 12px; font-style: italic;}  
+/* .eventArticle2_1 {border:1px solid black; } */
+.eventArticle2_1 {margin-right:20px;}
+.eventArticle2_2 {margin-right:20px;}
+.eventArticle2_1 img { width:385px; }
+.eventArticle2_2 img { width:385px; }
+.eventArticle2_3 img { width:385px; }
+.eventArticle2_1_1 h3 {font-size: 16px; margin-top: 25px;}
+.eventArticle2_1_1 p {margin:10px 0 ; font-size:14px; color:rgb(131, 131, 122)}
+.eventArticle2_2_1 h3  {font-size: 16px; margin-top: 25px;}
+.eventArticle2_2_1 p  {margin:10px 0 ; font-size:14px; color:rgb(131, 131, 122)}
+.eventArticle2_3_1 h3 {font-size: 16px; margin-top: 25px;}
+.eventArticle2_3_1 p  {margin:10px 0 ; font-size:14px; color:rgb(131, 131, 122)}
+hr { margin: 50px auto ; border:none; border-top:1px solid rgb(224, 216, 216);
+  width:1200px;}
+
+
+
+    </style>
+
+<header id="header" class="row">
+    <div class="overlay"></div>
+    <div class="header_container">
+        <div class="header_box">
+            <div class="logo"><a href="./index.html"><img src="./image/ikea-logo.f7d9229f806b59ec64cb.svg" alt=""></a></div>
+            <div class="search_box">
+                <span><i class="fa-solid fa-magnifying-glass"></i></span>
+                <input type="text" placeholder="검색어 입력">
+                <span><i class="fa-solid fa-camera-retro"></i></span>
+            </div>
+            <ul class="user">
+                <li class="join"><a href="./login.html"><i class="fa-regular fa-user"></i><span>Hej!로그인 또는 가입하기</span></a></li>
+                <li class="liked"><a href="javascript:;"><i class="fa-regular fa-heart"></i></a></li>
+                <li class="shopping"><a href="cart.html"><i class="fa-solid fa-basket-shopping"></i></a></li>
+                <li class="opensidemenu"><button><span><i class="fa-solid fa-bars"></i></span></button></li>
+            </ul>
+        </div>
+    </div>
+    <div class="sidemenu">
+        <div class="sidemenu_top">
+            <div class="sidemenu_close">
+                <button type="button" class="sclosebtn">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="logo">
+                <a href="./index.html">
+                    <img src="./image/ikea-logo.f7d9229f806b59ec64cb.svg" alt="">
+                </a>
+            </div>
+        </div>
+        <nav class="sidenav">
+            <ul class="bcate">
+                <li><a href="./all_prd.html">모든 제품</a></li>
+                <li><a href="./rooms.html">공간별 쇼핑하기</a></li>
+                <li><a href="./notice.html">새로운 소식</a></li>
+                <li><a href="javascript:;">홈 액세서리</a></li>
+                <li><a href="javascript:;">서비스</a></li>
+                <li><a href="javascript:;">특별한 가격</a></li>
+                <li><a href="javascript:;">아이디어</a></li>
+                <li><a href="javascript:;">셀프 플래닝</a></li>
+            </ul>
+            <ul class="scate">
+                <li><a href="javascript:;">매장안내</a></li>
+                <li><a href="javascript:;">레스토랑&카페</a></li>
+                <li><a href="javascript:;">쉽고 편한 전화 주문,헤이오더</a></li>
+                <li><a href="javascript:;">IKEA Live</a></li>
+                <li><a href="javascript:;">IKEA Family</a></li>
+                <li><a href="javascript:;">IKEA for Business</a></li>
+                <li><a href="javascript:;">고객지원</a></li>
+                <li><a href="javascript:;">배송조회</a></li>
+                <li><a href="javascript:;">내 프로필</a></li>
+            </ul>
+        </nav>
+        <div class="sidemenufooter">
+            <div class="language-selector">
+                <select>
+                    <option value="#">한국어</option>
+                    <option value="#">English</option>
+                </select>
+                <span><i class="fa-solid fa-chevron-down"></i></span>
+            </div>
+            <a href="javascript:;" class="changecountry">
+                <span><i class="fa-solid fa-globe"></i>국가변경</span>
+            </a>
+        </div>
+    </div>
+</header>
+
+    <section id="eventSection" class="row">
+        <div id="eventHeader">
+            <h1>IKEA Food</h1>
+            <h2><strong>쇼핑과 함께 건강하고 맛있는 음식을 즐기세요!</strong></h2>
+            <p>IKEA 매장에서 스웨덴의 맛을 느껴보세요. 레스토랑에서 스웨덴의 대표적인 메뉴와 친숙한 한식을 즐기며 잠깐 쉬어가는 건 어떨까요? 맛있게 먹었던 메뉴를 스웨덴 푸드 마켓에서 구입해 집에서도 쉽게 즐길 수 있어요.
+            </p>
+        </div>
+    
+        <article id="eventArticle" class="row">
+            <div class="eventArticle1">
+                <img src="./image/foodeventmain.jpg" alt="">
+                <div class="restaurant">
+                    <h3><strong>레스토랑</strong></h3>
+                    <div class="restaurantdetail">
+                        <p class="restaurantdetail_1">레스토랑에서 맛있는 음식을 먹으며 에너지를 충전해 보세요. 맛과 영양은 물론, 사람과 지구의 건강을 위한 지속 가능한 스웨덴 요리를 합리적인 가격으로 맛볼 수 있습니다. </p>
+                        <p class="restaurantdetail_2">아래 링크를 통해 모든 레스토랑의 공통 메뉴와 각 메뉴의 알레르기 정보 및 영양성분을 확인해 보세요.</p>
+                     
+                    </div>  
+                     <div class="commonMenu">공통 메뉴 보러가기</div>
+                    <div class="commonMenu_1">
+                        <p class="commonMenu_2">*메인 메뉴 주문 시 6~12개월 사이의 영아에게 병에 든 이유식을 무료로 제공합니다. 결제 시 직원에게 문의해 주세요.</p>
+                        <p class="commonMenu_3">*매장에서 더 많은 메뉴와 할인된 IKEA Family 특별가 메뉴 및 IKEA Food 이벤트를 확인하실 수 있습니다</p>
+                    </div>
+                </div>
+            </div>
+            <div class="eventArticle2">
+                <div class="eventArticle2_1">
+                    <img src="./image/foodevent1.jpg" alt="">
+                    <div class="eventArticle2_1_1">
+                        <h3>비스트로</h3>   
+                        <p>쇼핑을 마치고 집으로 돌아가기 전 비스트로에서 가볍게 간식과 음료를 즐겨보세요. 비스트로는 좋은 음식을 정직한 가격에 제공합니다.</p>
+                        <p>아래 링크를 통해 모든 비스트로의 공통 메뉴와 각 메뉴의 알레르기 정보 및 영양성분을 확인해 보세요.</p>
+                    </div>
+                </div>
+                <div class="eventArticle2_2">
+                    <img src="./image/foodevent2.jpg" alt="">
+                    <div class="eventArticle2_2_1">
+                        <h3>스웨덴 푸드 마켓</h3>
+                        <p>IKEA에서 스웨덴의 맛을 느껴보세요. 매장을 나서기 전 스웨덴 푸드 마켓에서 판매하는 다양한 IKEA의 지속 가능한 메뉴, 스낵, 음료도 잊지 말고 확인해 보세요.
+    
+                        </p>
+                    </div>
+                </div>
+               <div class="eventArticle2_3">
+                    <img src="./image/foodevent3.jpg" alt="">
+                    <div class="eventArticle2_3_1">
+                        <h3>카페</h3>
+                        <p>IKEA 쇼핑의 또 다른 즐거움, 카페를 각 매장에서 만나보세요! 열대우림동맹 (Rainforest Alliance) 인증을 받은 유기농 커피 원두로 맛있는 커피를 놓치지 마세요. </p>
+                        <p>또한 모든 매장의 카페에서는 텀블러를 지참해 주신 고객분들께 커피 메뉴에 한하여 500원 할인받으실 수 있어요. </p>
+                        <p>*열대우림동맹 (Rainforest Alliance) 인증이란? 지속 가능한 방식으로 재배한 커피, 코코아, 차에 대한 인증 프로그램입니다.</p>
+                   
+                    </div> </div>
+            </div>
+        </article>
+    </section>
+    <hr>
+    
+  <div class="footer"></div>
+  <script src="./JS/common.js"></script>
+
+    <script>
+        $('.ikeabtn').click(function(){
+            $(this).css("border-bottom", "4px solid #0058A3");
+        });
+        // 메인 사이드바
+        $(function(){
+            $('.sidemenu-button').click(function(){
+                $('.sidemenu').addClass('active')
+                $('.overlay').fadeIn()
+            });
+
+            
+            $('.sidemenu_close').click(function(){
+                $('.sidemenu').removeClass('active')
+                $('.overlay').fadeOut()
+            });
+
+            $('.overlay').on('click', function(){
+                $('.sidemenu').removeClass('active')
+                $('.overlay').fadeOut()
+            })
+        });
+        // 1199px 사이드바
+        $(function(){
+            $('.opensidemenu').click(function(){
+                $('.sidemenu').addClass('active')
+                $('.overlay').fadeIn()
+            });
+
+            
+            $('.sidemenu_close').click(function(){
+                $('.sidemenu').removeClass('active')
+                $('.overlay').fadeOut()
+            });
+
+            $('.overlay').on('click', function(){
+                $('.sidemenu').removeClass('active')
+                $('.overlay').fadeOut()
+            })
+        });
+        // 상품 미니 팝업
+        $(document).ready(function() {
+            $("#miniInfo > li").hover(
+            function() {
+                $(this).find(".minibar").css("display", "block");
+                },
+            function() {
+                $(this).find(".minibar").css("display", "none");
+                }
+            );
+        });
+        // QnA-Box
+        $(function(){
+            $('.QnA-btn').click(function(){
+                $(this).hide()
+                $('.QnA-box').fadeIn('active')  
+            })
+
+            $('.QnAb-closebtn').click(function(){
+                $('.QnA-box').fadeOut('active')
+                $('.QnA-btn').show()
+            })
+            
+        })
+        $(document).ready(function(){
+            $("#agreecheck").on("change", function() {
+                if ($(this).is(":checked")) {
+                  $("#chatbtn").prop("disabled", false) 
+                } else {
+                    $("#chatbtn").prop("disabled", true) 
+                }
+                
+            })
+        })
+    </script>
+
+    <script>
+        //  홈 퍼니싱 텝 메뉴  
+        $(document).ready(function(){
+            $('.productInfo button').click(function(){
+                $('.productInfo button.active').removeClass("active").css("border", "none")
+                $(this).addClass("active").css("border", "1px solid #000");
+                var productIndex = $(this).index();
+                $(".productImg .shoppinghelp").removeClass("active");
+                $(".productImg .shoppinghelp").eq(productIndex).addClass("active");
+            })
+        })
+
+        // header 로그인 버튼 스크립트
+        let myid = sessionStorage.getItem("id")
+        let mypw = sessionStorage.getItem("pw")
+        if (myid && mypw) {
+            $('.join a').eq(0).attr({
+                href : "javascript:;"
+            }).text("로그아웃")}
+        
+        $('.join a').eq(0).on('click', function(){
+            let text = $(this).text()
+            if (text == '로그아웃') {
+                sessionStorage.clear()
+                localStorage.clear()
+                location.href = './index.html'
+                }
+        })
+
+        // $(document).ready(function(){
+        //     $(".footerlist_li h3").click(function(){
+        //         $(this).next(".footerlist_tab").toggle()
+        //         // $(this).next(".footerlist_tab").delay(1100).fadeIn()
+        //     })
+        // })
+
+        
+    </script>
+    <script>
+        $('.ikeabtn').click(function(){
+            $(this).css("border-bottom", "4px solid #0058A3");
+        });
+        // 메인 사이드바
+        $(function(){
+            $('.sidemenu-button').click(function(){
+                $('.sidemenu').addClass('active')
+                $('.overlay').fadeIn()
+            });
+
+            
+            $('.sidemenu_close').click(function(){
+                $('.sidemenu').removeClass('active')
+                $('.overlay').fadeOut()
+            });
+
+            $('.overlay').on('click', function(){
+                $('.sidemenu').removeClass('active')
+                $('.overlay').fadeOut()
+            })
+        });
+        // 1199px 사이드바
+        $(function(){
+            $('.opensidemenu').click(function(){
+                $('.sidemenu').addClass('active')
+                $('.overlay').fadeIn()
+            });
+
+            
+            $('.sidemenu_close').click(function(){
+                $('.sidemenu').removeClass('active')
+                $('.overlay').fadeOut()
+            });
+
+            $('.overlay').on('click', function(){
+                $('.sidemenu').removeClass('active')
+                $('.overlay').fadeOut()
+            })
+        });
+        // 상품 미니 팝업
+        $(document).ready(function() {
+            $("#miniInfo > li").hover(
+            function() {
+                $(this).find(".minibar").css("display", "block");
+                },
+            function() {
+                $(this).find(".minibar").css("display", "none");
+                }
+            );
+        });
+        // QnA-Box
+        $(function(){
+            $('.QnA-btn').click(function(){
+                $(this).hide()
+                $('.QnA-box').fadeIn('active')  
+            })
+
+            $('.QnAb-closebtn').click(function(){
+                $('.QnA-box').fadeOut('active')
+                $('.QnA-btn').show()
+            })
+            
+        })
+        $(document).ready(function(){
+            $("#agreecheck").on("change", function() {
+                if ($(this).is(":checked")) {
+                  $("#chatbtn").prop("disabled", false) 
+                } else {
+                    $("#chatbtn").prop("disabled", true) 
+                }
+                
+            })
+        })
+    </script>
+
+</body>
+</html>
