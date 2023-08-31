@@ -98,7 +98,7 @@
             <div id="cart_qty">
               <div id="cart_qty_form">
                 <button type="button" class="qty__minus">-</button>
-                <input type="text" value="${value.qty}">
+                <input type="text" class="qty__input" value="${value.qty}">
                 <button type="button" class="qty__plus">+</button>
               </div>
               <div>합계: 
@@ -214,6 +214,18 @@
     total = total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
     $(this).parent().next().find('.prd_total').text(total)
     console.log(cartList)
+    order_list()
+  })
+
+  $('body').on('keyup', '.qty__input', function(){
+    let quantity = parseInt($(this).val())
+    let myprice = parseInt($(this).parent().parent().prev().find('.prd_price').text().replace(/[^0-9]/g, ""))
+    let total = 0;
+    if (quantity < 1 | !quantity) {quantity = 1}
+    $(this).val(quantity)
+    total = quantity * myprice
+    $(this).parent().next().find('.prd_total').text(total)
+    console.log(total)
     order_list()
   })
 
