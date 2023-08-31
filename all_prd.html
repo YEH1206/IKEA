@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="./CSS/style.css">
   <link rel="stylesheet" href="./CSS/rwd.css">
   <link rel="stylesheet" href="./CSS/fonts.css">
+  <link rel="shortcut icon" type="image/x-icon" href="./Images/favicon_IKEA.ico" />
 </head>
 
 <body>
@@ -27,32 +28,32 @@
             <p>새로운 수납장을 찾거나 우리 아이 방을 위한 가구를 사고 싶은데 어디서부터 어떻게 시작해야 할지 고민이신가요? 고객들의 솔직 후기로 사랑받고 있는 IKEA의 베스트셀러를 확인해 보세요! 원하는 가격대, 사이즈, 색상 등을 필터로 설정하면 더 빨리 찾을 수 있습니다.</p>
         </div>
         <div id="all_prd_nav">
-            <div class="all_prd_nav_list">
-              <button id="cat" class="all_prd_nav_tab">카테고리<i class="fa-solid fa-chevron-down"></i></button>
-              <button id="price" class="all_prd_nav_tab">가격<i class="fa-solid fa-chevron-down"></i></button>
-            </div>
-            <div id="all_prd_nav_catlist" class="all_prd_nav_content">
-              <ul>
-                <li><a href="">침구</a></li>
-                <li><a href="">수납/정리</a></li>
-                <li><a href="">안전용품</a></li>
-                <li><a href="">욕실</a></li>
-                <li><a href="">가전제품</a></li>
-                <li><a href="">주방 벽수납</a></li>
-                <li><a href="">가구</a></li>
-                <li><a href="">세탁/청소</a></li>
-              </ul>
-            </div>
-            <div id="all_prd_nav_pricelist" class="all_prd_nav_content">
-              <ul>
-                <li>₩0 - 1,999</li>
-                <li>₩2,000 - 3,999</li>
-                <li>₩4,000 - 5,999</li>
-                <li>₩6,000 - 7,999</li>
-                <li>₩8,000+</li>
-              </ul>
-            </div>
-        </div>
+          <div class="all_prd_nav_list">
+            <button id="cat" class="all_prd_nav_tab">카테고리<i class="fa-solid fa-chevron-down"></i></button>
+            <button id="price" class="all_prd_nav_tab">가격<i class="fa-solid fa-chevron-down"></i></button>
+          </div>
+          <div id="all_prd_nav_catlist" class="all_prd_nav_content">
+            <ul>
+              <li><a href="">침구</a></li>
+              <li><a href="">수납/정리</a></li>
+              <li><a href="">안전용품</a></li>
+              <li><a href="">욕실</a></li>
+              <li><a href="">가전제품</a></li>
+              <li><a href="">주방 벽수납</a></li>
+              <li><a href="">가구</a></li>
+              <li><a href="">세탁/청소</a></li>
+            </ul>
+          </div>
+          <div id="all_prd_nav_pricelist" class="all_prd_nav_content">
+            <ul>
+              <li>₩0 - 1,999</li>
+              <li>₩2,000 - 3,999</li>
+              <li>₩4,000 - 5,999</li>
+              <li>₩6,000 - 7,999</li>
+              <li>₩8,000+</li>
+            </ul>
+          </div>
+      </div>
         <div id="all_container">
               <!-- <div class="one_container">
                 <a href="./prd_detail.html?ALEX 알렉스" style="text-decoration: none;">
@@ -60,19 +61,21 @@
                     <img src="./Images/Prd/ALEX 알렉스.avif" alt="ALEX 알렉스">
                   </div>
                   <div class="one_info">
-                    <h2>제품명</h2>
-                    <p>제품설명</p>
-                    <p><i class="fa-solid fa-won-sign" style="font-size: 14px;"></i>가격</p>
+                    <h2 class="name">제품명</h2>
+                    <p class="info">제품설명</p>
+                    <p class="price"><i class="fa-solid fa-won-sign" style="font-size: 14px;"></i>가격</p>
                   </div>
                 </a>
                 <div>
-                    <button type="button"><i class="fa-solid fa-basket-shopping"></i></button>
+                    <button type="button" class="cart"><i class="fa-solid fa-basket-shopping"></i></button>
                 </div>
               </div> -->
         </div>
       </div>
     </div>
   </section>
+
+
   <script src="./JS/common.js"></script>
 
   <script>
@@ -88,7 +91,47 @@
         alert(xhr.status + "/" + xhr.errorText)
       }
     })
+  </script>
+  <script src="./JS/getPics.js"></script>
 
+  <script>
+    $('body').on('click', '.cart', function(e){
+      e.preventDefault
+
+      let newItem = {
+        name: $(this).parent().prev().find('.name').text(),
+        info: $(this).parent().prev().find('.info').text(),
+        color: $(this).parent().prev().find('.color').text(),
+        price: $(this).parent().prev().find('.price').text().replace(/[^0-9]/g, ""),
+        qty: 1
+      }
+      console.log(newItem)
+      console.log("1")
+
+      let itemList = JSON.parse(localStorage.getItem("allItem"))
+      if (itemList==null) {
+        itemList = []
+      }
+
+      flag = true
+      itemList.forEach(element => {
+        if (element.name == newItem.name && element.color == newItem.color) {
+          element.qty = parseInt(element.qty) + parseInt(newItem.qty)
+          flag = false
+          return false
+        }
+      });
+      if (flag) {itemList.push(newItem)}
+      
+      localStorage.setItem("allItem", JSON.stringify(itemList))
+      console.log(itemList)
+
+      if (confirm("장바구니로 이동할까요?")) {
+        location.href = "./cart.html"
+      }
+
+    })  
+    
     $(document).ready(function(){
       $(".all_prd_nav_tab").click(function(){
         var tabIndex = $(this).index()
@@ -108,10 +151,6 @@
       }
     })
   </script>
-  
-  <script src="./JS/getPics.js"></script>
-
-
 
 </body>
 
