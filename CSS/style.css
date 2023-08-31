@@ -207,7 +207,8 @@ html, body {height: 100%;}
 #cart_login h2 {color: #111;}
 #cart_left {grid-column: 2 / span 7; margin-top: 50px;}
 #cart_left h1 {font-size: 36px; color: #111; margin-bottom: 10px; }
-#cart_left .delete_button {width: auto; height: auto;}
+#cart_left .delete_button {width: auto; height: auto; border: none; background-color: transparent; cursor: pointer; color: #0058a3;}
+#cart_left .delete_button:active {color: black;}
 #cart_left .delete_button i {line-height: 15px; font-size: 15px;}
 .cart_one_prd {display: flex; flex-direction: row; padding: 2rem 0; border-bottom: 1px solid #aaa;}
 .cart_one_prd div:nth-child(1) {padding: 20px;}
