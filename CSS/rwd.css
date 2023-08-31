@@ -34,7 +34,7 @@
     #section .grid {display: block; padding-inline-start: 0rem; padding-inline-end: 0rem; max-width: 112rem;}
     .header_grid {padding-inline-start: 3rem; padding-inline-end: 2rem;}
     #all_container {display: grid; column-gap: 1.75rem; grid-template-columns: repeat(3, minmax(0, 1fr));}
-
+    #all_prd .paragraph {width: 100%;}
 }
 
 @media screen and (max-width:640px) {
