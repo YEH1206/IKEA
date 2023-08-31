@@ -71,7 +71,7 @@ function getDetailPics(element) {
             let item = element.sub_items[i]
             detailPics += 
             `<li>
-            <a href="prd_detail.html?${item.name}" class="image_dot" style="top: ${item.place[0]}; left:${item.place[1]}; position: relative"></a>
+            <a href="./prd_detail.html?${item.name}" class="image_dot" style="top: ${item.place[0]}; left:${item.place[1]}; position: relative"></a>
             <div style="display: none;">
               <a href="prd.html?${item.name}">
                 <div style="border-radius: 3px; position: absolute; top: ${item.place[2]}; left:${item.place[3]};">
